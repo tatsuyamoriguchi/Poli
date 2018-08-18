@@ -13,6 +13,7 @@ class GoalDoneViewController: UIViewController {
 
     var goal: Goal!
     var goalDone: Bool!
+
     
     @IBOutlet weak var goalTitleLabel: UILabel!
     @IBOutlet weak var goalDoneSwitch: UISwitch!
@@ -44,8 +45,8 @@ class GoalDoneViewController: UIViewController {
             print("Saving Error: \(error)")
         }
 
-        navigationController!.popToRootViewController(animated: true)
-        
+        //navigationController!.popToRootViewController(animated: true)
+        performSegue(withIdentifier: "toGoalList", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,14 +55,16 @@ class GoalDoneViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toGoalList" {
+            //let destVC = segue.destination as! GoalTableViewController
+    
+        }
     }
-    */
+ 
 
 }

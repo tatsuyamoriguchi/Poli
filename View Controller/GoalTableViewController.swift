@@ -88,6 +88,11 @@ class GoalTableViewController: UITableViewController {
         }
     }
     
+    func addMoreTask(alertAction: UIAlertAction) {
+        
+        performSegue(withIdentifier: "taskList", sender: self)
+        
+    }
     
     // MARK: - Table view data source
 
@@ -151,14 +156,14 @@ class GoalTableViewController: UITableViewController {
         goalCell.goalProgressPercentageLabel.text = String(format: "%.1f", goalProgressPercentage100) + "% Done, " + progressMessage
 
         // If all tasks have been done for the first time, display confirmation alert, if ok, change goalDone value to true
+
         if goal.goalDone == false && goalProgress == 1.0 {
-  
-            //AlertNotification().alert(title: "Goal Achieved?", message: "All tasks registered to \"\(goal.goalTitle!)\" have been completed. If you have finished, press OK to celebrate it! If you still need to continue, press Cancel and add more tasks.", sender: self)
             
-            let alert = UIAlertController(title: "Goal Achieved?", message: "All tasks registered to \"\(goal.goalTitle!)\" have been completed. If you have finished, press OK to celebrate it! If you still need to continue, press Cancel and add more tasks.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Goal Achieved?", message: "All tasks registered to \"\(goal.goalTitle!)\" have been completed. If you have finished, press 'Celebrate it!' If you still need to continue, press 'Add More Task' and go to Task List view to add more.", preferredStyle: .alert)
+            //alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Add More Task", style: .default, handler: nil))
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
+            alert.addAction(UIAlertAction(title: "Celebrate it!", style: .default, handler: {(alert: UIAlertAction!) in
                 
                 // Display Congratulation Message and Reward Image
                 let congratAlert = UIAlertController(title: "Congratulation!", message: "You now deserve \(goal.goalReward ?? "something you crave")! now. Celebrate your accomplishment with the reward RIGHT NOW!" , preferredStyle: .alert)
@@ -202,8 +207,8 @@ class GoalTableViewController: UITableViewController {
 
             self.present(alert, animated: true, completion: nil)
 
-
         }
+        
         
         if goal.goalDone == true {
              // Change background color if goalDone is true
@@ -300,7 +305,6 @@ class GoalTableViewController: UITableViewController {
             let destVC = segue.destination as! GoalDoneViewController
             let goal = goals[selectedIndex]
             destVC.goal = goal
-            //destVC.segueName = segue.identifier
             
         } else if segue.identifier == "taskList" {
             
@@ -309,17 +313,17 @@ class GoalTableViewController: UITableViewController {
                 let indexPath = self.tableView.indexPathForSelectedRow
                 selectedGoal = goals[(indexPath?.row)!]
                 vc.selectedGoal = selectedGoal
-                //print("Test1: \(selectedGoal)")
-                
             }
+            
         } else if segue.identifier == "settingsSegue" {
             let destVC = segue.destination as! SettingsViewController
             destVC.userName = userName
+
         } else if segue.identifier == "logoutSegue" {
             let destVC = segue.destination as! LoginViewController
             destVC.isOpening = false
             
-        }
+        } else {}
     }
     
 }

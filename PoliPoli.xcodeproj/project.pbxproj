@@ -34,7 +34,6 @@
 		8CE90872210ECC3D007AB95F /* GoalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE90871210ECC3D007AB95F /* GoalProgress.swift */; };
 		8CF25A0721195E3200634987 /* PlayAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF25A0621195E3200634987 /* PlayAudio.swift */; };
 		8CF86D89211AD5A10079A8C9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */; };
-		8CF86D8B211AD5C40079A8C9 /* PoliPoli.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 8CF86D8A211AD5C40079A8C9 /* PoliPoli.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +67,6 @@
 		8CE90871210ECC3D007AB95F /* GoalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgress.swift; sourceTree = "<group>"; };
 		8CF25A0621195E3200634987 /* PlayAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudio.swift; sourceTree = "<group>"; };
 		8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		8CF86D8A211AD5C40079A8C9 /* PoliPoli.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PoliPoli.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +108,6 @@
 		8C6B80A320FD749C0055D505 = {
 			isa = PBXGroup;
 			children = (
-				8CF86D8A211AD5C40079A8C9 /* PoliPoli.atlas */,
 				8C004A7320FEB3E300960B3A /* View Controller */,
 				8C6B80CC20FDBFAF0055D505 /* Core Data */,
 				8C6B80AE20FD749C0055D505 /* PoliPoli */,
@@ -228,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */,
-				8CF86D8B211AD5C40079A8C9 /* PoliPoli.atlas in Resources */,
 				8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */,
 				8C6B80B520FD749C0055D505 /* Main.storyboard in Resources */,
 			);

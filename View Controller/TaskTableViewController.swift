@@ -31,6 +31,7 @@ class TaskTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
      // Fetch the data from Core Data
      fetchData()
      
@@ -40,10 +41,9 @@ class TaskTableViewController: UITableViewController {
 
 
     func fetchData() {
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
-        print("TaskTableVC : selectedGoal :")
-        print(selectedGoal)
         if selectedGoal != nil {
             // Predicate with Relationship data
             fetchRequest.predicate = NSPredicate(format: "goalAssigned.goalTitle = %@", (selectedGoal?.goalTitle)!)
@@ -62,7 +62,7 @@ class TaskTableViewController: UITableViewController {
                 print(error)
             }
         }else{
-            print("selectedGoal error: \(selectedGoal)")
+            print("selectedGoal was nil.")
         }
     }
     

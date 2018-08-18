@@ -86,6 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         // Opening Sound
         if isOpening != false {
             PlayAudio.sharedInstance.playClick(fileName: "bigdog", fileExt: ".wav")
+            isOpening = false
         }
         userNameTextField.delegate = self
         passwordTextField.delegate = self
@@ -104,7 +105,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         self.mask!.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.mask!.position = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
         view.layer.mask = mask
-        
     }
     
     // Do Animation

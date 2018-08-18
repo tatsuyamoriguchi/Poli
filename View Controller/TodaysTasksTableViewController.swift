@@ -195,9 +195,6 @@ class TodaysTasksTableViewController: UITableViewController {
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
                 selectedGoal = tasks[(indexPath?.row)!].goalAssigned //goals[(indexPath?.row)!]
-               
-                print("selectedGoal")
-                print(selectedGoal)
                 
                 vc.selectedGoal = selectedGoal
             }
