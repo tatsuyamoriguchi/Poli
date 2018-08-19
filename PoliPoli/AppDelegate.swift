@@ -13,7 +13,7 @@ import UserNotifications
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -24,11 +24,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             print("Notificaiton Request was authorized.")
         }
+        
         UNUserNotificationCenter.current().delegate = self
+        
+        // Define actions for category
+        //let todayAction = UNNotificationAction(identifier: "toDoToday", title: "Today's Tasks To-Do", options: [])
+    
+        // Add antion to category
+        //let category = UNNotificationCategory(identifier: "todayCategory", actions: [todayAction], intentIdentifiers: [], options: [])
+        
+        // Add the catefory to notificaiton framework
+        // UNUserNotificationCenter.current().setNotificationCategories([category])
+        
         return true
     }
 
- 
+ /*  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "toDoToday" {
+            print("toDoToday")
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let logInVC = sb.instantiateViewController(withIdentifier: "logInVC") as! LoginViewController
+            window?.rootViewController = logInVC
+            
+            completionHandler()
+        }
+        
+    }
+ */
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -98,11 +124,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+
 
 }
-
+/*
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.alert)
     }
 }
+*/

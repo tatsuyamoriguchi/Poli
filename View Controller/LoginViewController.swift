@@ -90,10 +90,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         }
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        
-        //TEST
-        
-        //AlertNotification().alert(title: "Goal Achieved?", message: "All tasks registered have been completed. If the goal has been completed, press OK. If you want to continue, press Cancel.", sender: self)
+
     }
 
 

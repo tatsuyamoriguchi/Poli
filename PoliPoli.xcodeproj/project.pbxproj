@@ -13,6 +13,7 @@
 		8C27360D21169F1600A482B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27360C21169F1600A482B3 /* LoginViewController.swift */; };
 		8C27360F2116CB2200A482B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27360E2116CB2200A482B3 /* SettingsViewController.swift */; };
 		8C399EDA20FE4D7B00E15204 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C399ED920FE4D7B00E15204 /* GoalViewController.swift */; };
+		8C4061462129D95F0027270A /* PoliPoliIconSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4061452129D95E0027270A /* PoliPoliIconSmall.png */; };
 		8C433CCF2112721E008B946F /* GoalDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CCE2112721E008B946F /* GoalDescriptionViewController.swift */; };
 		8C433CD1211272C1008B946F /* GoalDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CD0211272C1008B946F /* GoalDueDateViewController.swift */; };
 		8C433CD3211272DC008B946F /* GoalRewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CD2211272DC008B946F /* GoalRewardViewController.swift */; };
@@ -43,6 +44,7 @@
 		8C27360C21169F1600A482B3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8C27360E2116CB2200A482B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C399ED920FE4D7B00E15204 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		8C4061452129D95E0027270A /* PoliPoliIconSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliPoliIconSmall.png; sourceTree = "<group>"; };
 		8C433CCE2112721E008B946F /* GoalDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDescriptionViewController.swift; sourceTree = "<group>"; };
 		8C433CD0211272C1008B946F /* GoalDueDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDueDateViewController.swift; sourceTree = "<group>"; };
 		8C433CD2211272DC008B946F /* GoalRewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRewardViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		8C6B80AE20FD749C0055D505 /* PoliPoli */ = {
 			isa = PBXGroup;
 			children = (
+				8C4061452129D95E0027270A /* PoliPoliIconSmall.png */,
 				8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */,
 				8C6B80AF20FD749C0055D505 /* AppDelegate.swift */,
 				8C6B80B320FD749C0055D505 /* Main.storyboard */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */,
+				8C4061462129D95F0027270A /* PoliPoliIconSmall.png in Resources */,
 				8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */,
 				8C6B80B520FD749C0055D505 /* Main.storyboard in Resources */,
 			);

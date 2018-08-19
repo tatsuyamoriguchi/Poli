@@ -31,7 +31,7 @@ class GoalDueDateViewController: UIViewController {
         }
         
         datePicker = UIDatePicker()
-        let nextButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(nextGoal))
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextGoal))
         self.navigationItem.rightBarButtonItem = nextButton
 
         // Do any additional setup after loading the view.

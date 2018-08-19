@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class SettingsViewController: UIViewController, UITextFieldDelegate {
+class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotificationCenterDelegate {
 
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -47,6 +47,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UNUserNotificationCenter.current().delegate = self
+        
         userNameTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -125,27 +127,54 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func setNotification() {
         let content = UNMutableNotificationContent()
-        content.title = "Today's Task To-Do Reminder"
-        content.subtitle = "Hello this is sub title"
-        content.body = "this is Body."
+        content.title = "Daily Reminder"
+        content.subtitle = "PoliPoli"
+        content.body = "Time to focus on tasks to-do!"
         content.sound = UNNotificationSound.default()
         
-        //let dateComponent = notificationTimePicker.calendar.dateComponents([.year, .month, .day, .hour, .minute], from: (notificationTimePicker.date))
+        //content.categoryIdentifier = "todayCategory"
+
+
         let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
-        
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-        let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().add(notificationReq, withCompletionHandler: nil)
         // Stored notificationTimePicker.date info to UserDefaults
         // Nexttime opening Settings view, it shows pre-defined time in DatePicker
         UserDefaults.standard.set(notificationTimePicker.date, forKey: "notificationTime")
+ 
         
+        // Attach image to notificaiton
+        guard let path = Bundle.main.path(forResource: "PoliPoliIconSmall", ofType: "png")
+        else {
+            print("unable to find image!")
+            return }
+
+        let url = URL(fileURLWithPath: path)
+        do {
+            let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+            content.attachments = [attachment]
+        } catch {
+            print("The attachement could not be loaded.")
+        }
+
+        
+        //let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
+        let notificationReq = UNNotificationRequest(identifier: "toDoToday", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
+
+            if let error = error {
+                print("Error: \(error).localizedDescription)")
+            }
+        }
+
         
         goalListSegue()
     }
+    
+
+    
     
     func alert(title: String, message: String, actionPassed: @escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
