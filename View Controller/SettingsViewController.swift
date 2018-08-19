@@ -63,15 +63,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
                 // Permissions are granted
-                self.notificationAlertLabel.isHidden = true
-                self.notificationTimePicker.isHidden = false
-                self.notificationSetButton.isHidden = false
-                
+                DispatchQueue.main.sync {
+                    self.notificationAlertLabel.isHidden = true
+                    self.notificationTimePicker.isHidden = false
+                    self.notificationSetButton.isHidden = false
+                    
+                    if let storedTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date {
+                        self.notificationTimePicker.setDate(storedTime, animated: true)
+                    }
+                    
+                }
+              
             } else {
+                DispatchQueue.main.sync {
                 // Permissions are not granged
                 self.notificationAlertLabel.isHidden = false
                 self.notificationTimePicker.isHidden = true
                 self.notificationSetButton.isHidden = true
+                }
             }
         }
         
@@ -80,6 +89,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         //navigationItem.rightBarButtonItems = [settings]
         // Do any additional setup after loading the view.
     }
+    
 
     // To dismiss a keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -123,11 +133,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         //let dateComponent = notificationTimePicker.calendar.dateComponents([.year, .month, .day, .hour, .minute], from: (notificationTimePicker.date))
         let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
         
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
         let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(notificationReq, withCompletionHandler: nil)
+        // Stored notificationTimePicker.date info to UserDefaults
+        // Nexttime opening Settings view, it shows pre-defined time in DatePicker
+        UserDefaults.standard.set(notificationTimePicker.date, forKey: "notificationTime")
+        
         
         goalListSegue()
     }
