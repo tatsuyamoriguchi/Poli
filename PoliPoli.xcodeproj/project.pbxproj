@@ -32,6 +32,7 @@
 		8C807A3D21267F890024D5EB /* TodaysTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */; };
 		8C98C31D21191B1F00FAFADE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C98C31C21191B1F00FAFADE /* AVFoundation.framework */; };
 		8CB3A03B2104097F00774DE6 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */; };
+		8CE809B9212A31A20076756C /* LocalNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */; };
 		8CE90872210ECC3D007AB95F /* GoalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE90871210ECC3D007AB95F /* GoalProgress.swift */; };
 		8CF25A0721195E3200634987 /* PlayAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF25A0621195E3200634987 /* PlayAudio.swift */; };
 		8CF86D89211AD5A10079A8C9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */; };
@@ -66,6 +67,7 @@
 		8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTasksTableViewController.swift; sourceTree = "<group>"; };
 		8C98C31C21191B1F00FAFADE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
+		8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationDelegate.swift; sourceTree = "<group>"; };
 		8CE90871210ECC3D007AB95F /* GoalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgress.swift; sourceTree = "<group>"; };
 		8CF25A0621195E3200634987 /* PlayAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudio.swift; sourceTree = "<group>"; };
 		8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +91,7 @@
 			children = (
 				8C27360C21169F1600A482B3 /* LoginViewController.swift */,
 				8C27360E2116CB2200A482B3 /* SettingsViewController.swift */,
+				8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */,
 				8C004A6D20FEB14D00960B3A /* GoalTableViewController.swift */,
 				8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */,
 				8CE90871210ECC3D007AB95F /* GoalProgress.swift */,
@@ -246,6 +249,7 @@
 				8C4E7A00210F826B00483CCE /* Task+CoreDataClass.swift in Sources */,
 				8C27360F2116CB2200A482B3 /* SettingsViewController.swift in Sources */,
 				8C4E79FF210F826B00483CCE /* Goal+CoreDataProperties.swift in Sources */,
+				8CE809B9212A31A20076756C /* LocalNotificationDelegate.swift in Sources */,
 				8C27360D21169F1600A482B3 /* LoginViewController.swift in Sources */,
 				8C4E7A01210F826B00483CCE /* Task+CoreDataProperties.swift in Sources */,
 				8C433CD3211272DC008B946F /* GoalRewardViewController.swift in Sources */,

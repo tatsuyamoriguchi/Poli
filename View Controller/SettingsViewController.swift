@@ -9,14 +9,21 @@
 import UIKit
 import UserNotifications
 
-class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotificationCenterDelegate {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var notificationAlertLabel: UILabel!
     @IBOutlet weak var notificationSetButton: UIButton!
+    @IBOutlet weak var goToSettingsButton: UIButton!
     
+    @IBAction func goToSettingsPressed(_ sender: UIButton) {
+        
+        if let url = URL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
+    }
     
     @IBAction func updateAccountPressed(_ sender: UIButton) {
         updateAccount()
@@ -47,7 +54,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotif
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UNUserNotificationCenter.current().delegate = self
         
         userNameTextField.delegate = self
         passwordTextField.delegate = self
@@ -69,11 +75,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotif
                     self.notificationAlertLabel.isHidden = true
                     self.notificationTimePicker.isHidden = false
                     self.notificationSetButton.isHidden = false
+                    self.goToSettingsButton.isHidden = true
                     
                     if let storedTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date {
                         self.notificationTimePicker.setDate(storedTime, animated: true)
                     }
-                    
                 }
               
             } else {
@@ -82,14 +88,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotif
                 self.notificationAlertLabel.isHidden = false
                 self.notificationTimePicker.isHidden = true
                 self.notificationSetButton.isHidden = true
+                    self.goToSettingsButton.isHidden = false
                 }
             }
         }
-        
-//        self.navigationItem.rightBarButtonItem = self.
-        //let settings = UIBarButtonItem(title: "Update", style: .done, target: self, action: #selector(updatePressed))
-        //navigationItem.rightBarButtonItems = [settings]
-        // Do any additional setup after loading the view.
     }
     
 
@@ -126,13 +128,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotif
     }
     
     func setNotification() {
+        
+        //UNUserNotificationCenter.current().delegate = self
+        
         let content = UNMutableNotificationContent()
         content.title = "Daily Reminder"
-        content.subtitle = "PoliPoli"
+        content.subtitle = "Open PoliPoli"
         content.body = "Time to focus on tasks to-do!"
         content.sound = UNNotificationSound.default()
-        
-        //content.categoryIdentifier = "todayCategory"
 
 
         let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
@@ -159,16 +162,20 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UNUserNotif
 
         
         //let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
-        let notificationReq = UNNotificationRequest(identifier: "toDoToday", content: content, trigger: trigger)
+        let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
+       /* UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
 
             if let error = error {
                 print("Error: \(error).localizedDescription)")
             }
         }
-
+ */
+        let center = UNUserNotificationCenter.current()
+        center.add(notificationReq) { (error) in
+            print("Error: \(String(describing: error))")
+        }
         
         goalListSegue()
     }
