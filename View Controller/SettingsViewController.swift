@@ -7,17 +7,42 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
 
-    var userName: String! = ""
-    var userPassword: String! = ""
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var notificationAlertLabel: UILabel!
+    @IBOutlet weak var notificationSetButton: UIButton!
     
+    
+    @IBAction func updateAccountPressed(_ sender: UIButton) {
+        updateAccount()
+    }
+    
+    @IBOutlet weak var notificationTimePicker: UIDatePicker!
+    
+    @IBAction func notificationSetPressed(_ sender: UIButton) {
+        // Obtain Notificaiton Time Set information from UIDatePicker
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        let notificationTime = timeFormatter.string(from: notificationTimePicker.date)
+        // Alert with notificaitonTime, Clicking OK fires notificaiton at preset time, Cancel terminates notification
+        alert(title: "Notificaiton Time Set", message: "\(notificationTime)", actionPassed: setNotification)
+        
+        
+    }
+    
+    var userName: String! = ""
+    var userPassword: String! = ""
     let storedUserName = UserDefaults.standard.object(forKey: "userName") as? String
     let storedPassword = UserDefaults.standard.object(forKey: "userPassword") as? String
+  
+    
+    var timePicker: UIDatePicker?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +59,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.text = storedPassword
         }
         
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                // Permissions are granted
+                self.notificationAlertLabel.isHidden = true
+                self.notificationTimePicker.isHidden = false
+                self.notificationSetButton.isHidden = false
+                
+            } else {
+                // Permissions are not granged
+                self.notificationAlertLabel.isHidden = false
+                self.notificationTimePicker.isHidden = true
+                self.notificationSetButton.isHidden = true
+            }
+        }
+        
 //        self.navigationItem.rightBarButtonItem = self.
-        let settings = UIBarButtonItem(title: "Update", style: .done, target: self, action: #selector(updatePressed))
-        navigationItem.rightBarButtonItems = [settings]
+        //let settings = UIBarButtonItem(title: "Update", style: .done, target: self, action: #selector(updatePressed))
+        //navigationItem.rightBarButtonItems = [settings]
         // Do any additional setup after loading the view.
     }
 
@@ -52,15 +93,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @objc func updatePressed(_ sender: UIButton) {
+    func updateAccount() {
         
         userName = userNameTextField.text!
         userPassword = passwordTextField.text!
 
         if userNameTextField.text == "" || passwordTextField.text == "" {
             // no enough input entry alert
-            //print("3: \(userIDTextField.text)")
-            //print("4: \(passwordTextField.text)")
             alert(title: "Need More Information", message: "Fill both information: User Name and Password", actionPassed: noAction)
             
         } else {
@@ -74,6 +113,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func setNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Today's Task To-Do Reminder"
+        content.subtitle = "Hello this is sub title"
+        content.body = "this is Body."
+        content.sound = UNNotificationSound.default()
+        
+        //let dateComponent = notificationTimePicker.calendar.dateComponents([.year, .month, .day, .hour, .minute], from: (notificationTimePicker.date))
+        let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+        let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(notificationReq, withCompletionHandler: nil)
+        
+        goalListSegue()
+    }
     
     func alert(title: String, message: String, actionPassed: @escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -81,8 +138,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             action in
             actionPassed()
         }))
-        self.present(alert, animated: true, completion: nil)
         
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func noAction() {
@@ -103,6 +162,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "backtoLoginSegue", sender: nil)
     }
 
+    func goalListSegue() {
+        performSegue(withIdentifier: "ToGoalListSegue", sender: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,15 +173,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: - Navigation
-/*
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "backtoLoginSegue" {
-            let destVC = segue.destination as! LoginViewController
+        if segue.identifier == "ToGoalListSegue" {
+            let destVC = segue.destination as! GoalTableViewController
+            destVC.userName = userName
         }
     }
-  */
+
 
 }
