@@ -50,17 +50,6 @@ class TodaysTasksTableViewController: UITableViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         
-        // Predicate with Relationship data
-        //fetchRequest.predicate = NSPredicate(format: "goalAssigned.goalTitle = %@", (selectedGoal?.goalTitle)!)
-        
-/*        let timeString = dateFormatter.string(from: timePressed)
-
-        var today = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.calendar.isDateInToday(<#T##date: Date##Date#>)
-
- */
         //var taskDate = Task.date
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local

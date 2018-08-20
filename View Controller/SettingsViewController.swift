@@ -129,14 +129,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func setNotification() {
         
-        //UNUserNotificationCenter.current().delegate = self
+        let yes = UNNotificationAction(identifier: "yes", title: "Yeees!", options: [.foreground])
+        let no = UNNotificationAction(identifier: "no", title: "Dismiss for Now", options: [])
         
+        let category = UNNotificationCategory(identifier: "today", actions: [yes, no], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        let requestIdentifier = "DailyReminder"
         let content = UNMutableNotificationContent()
         content.title = "Daily Reminder"
         content.subtitle = "Open PoliPoli"
         content.body = "Time to focus on tasks to-do!"
         content.sound = UNNotificationSound.default()
-
+        content.categoryIdentifier = "today"
 
         let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
@@ -147,36 +152,36 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
  
         
         // Attach image to notificaiton
-        guard let path = Bundle.main.path(forResource: "PoliPoliIconSmall", ofType: "png")
-        else {
-            print("unable to find image!")
-            return }
+        // If sets trigger repeats option to true, notificaiton doesn't attach image on second time or later.
+         
+        guard let url = Bundle.main.url(forResource: "PoliPoliIcon", withExtension: "png")
+            else {  print("unable to find image!")
+                return }
 
-        let url = URL(fileURLWithPath: path)
         do {
-            let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+            let attachment = try UNNotificationAttachment(identifier: requestIdentifier, url: url, options: nil)
             content.attachments = [attachment]
         } catch {
             print("The attachement could not be loaded.")
         }
 
         
-        //let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
-        let notificationReq = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
+        
+        let notificationReq = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-       /* UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
+        UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
 
             if let error = error {
-                print("Error: \(error).localizedDescription)")
+                print("Notification Request Error: \(error).localizedDescription)")
             }
         }
- */
-        let center = UNUserNotificationCenter.current()
+ 
+     /*   let center = UNUserNotificationCenter.current()
         center.add(notificationReq) { (error) in
             print("Error: \(String(describing: error))")
         }
-        
+       */
         goalListSegue()
     }
     

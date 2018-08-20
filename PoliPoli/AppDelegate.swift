@@ -21,10 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        //let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         let center = UNUserNotificationCenter.current()
-        center.delegate = userNotificationDelegate
-        
+        center.delegate = userNotificationDelegate        
         
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             print("Notificaiton Request was authorized.")
@@ -33,13 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
-        
-    }
-    
 
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -111,13 +102,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-
-
 }
-/*
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
-    }
-}
-*/
