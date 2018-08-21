@@ -32,7 +32,9 @@ class GoalTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         self.navigationItem.prompt = "Login as \(userName!)"
+        
         
         //let logout = UIBarButtonItem(barButtonSystemItem: .cancel , target: self, action: #selector(logoutPressed(_:)))
         let logout = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutPressed(_:)))
@@ -313,17 +315,20 @@ class GoalTableViewController: UITableViewController {
             let goal = goals[selectedIndex]
             destVC.goal = goal
             destVC.segueName = segue.identifier
+            //destVC.userName = userName
             
         } else if segue.identifier == "toGoalDone" {
             let destVC = segue.destination as! GoalDoneViewController
             let goal = goals[selectedIndex]
             destVC.goal = goal
+            destVC.userName = userName!
             
         } else if segue.identifier == "taskList" {
 
             let destVC = segue.destination as! TaskTableViewController
             let goal = goals[selectedIndex]
             destVC.selectedGoal = goal
+            //destVC.userName = userName
             
 
             /*

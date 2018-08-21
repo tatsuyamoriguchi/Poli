@@ -13,6 +13,7 @@ class GoalDoneViewController: UIViewController {
 
     var goal: Goal!
     var goalDone: Bool!
+    var userName: String = ""
 
     
     @IBOutlet weak var goalTitleLabel: UILabel!
@@ -26,7 +27,11 @@ class GoalDoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if userName != "" {
+            self.navigationItem.prompt = "Login as \(userName)"
+        } else {
+            self.navigationItem.prompt = "Login info is missing!"
+        }
         goalTitleLabel.text = goal.goalTitle
         goalDoneSwitch.isOn = goal.goalDone
         
@@ -61,7 +66,8 @@ class GoalDoneViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGoalList" {
-            //let destVC = segue.destination as! GoalTableViewController
+            let destVC = segue.destination as! GoalTableViewController
+            destVC.userName = userName
     
         }
     }
