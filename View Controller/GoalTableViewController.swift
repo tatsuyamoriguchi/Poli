@@ -88,8 +88,8 @@ class GoalTableViewController: UITableViewController {
         }
     }
     
-    func addMoreTask(alertAction: UIAlertAction) {
-        
+    func addMoreTask(goal: Goal, indexPath: IndexPath) {
+        selectedIndex = indexPath.row
         performSegue(withIdentifier: "taskList", sender: self)
         
     }
@@ -161,9 +161,17 @@ class GoalTableViewController: UITableViewController {
             
             let alert = UIAlertController(title: "Goal Achieved?", message: "All tasks registered to \"\(goal.goalTitle!)\" have been completed. If you have finished, press 'Celebrate it!' If you still need to continue, press 'Add More Task' and go to Task List view to add more.", preferredStyle: .alert)
             //alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Add More Task", style: .default, handler: nil))
+           
             
-            alert.addAction(UIAlertAction(title: "Celebrate it!", style: .default, handler: {(alert: UIAlertAction!) in
+            alert.addAction(UIAlertAction(title: "Not Done Yet, Add More Task", style: .default, handler: {(alert: UIAlertAction!) in
+               
+               
+                self.addMoreTask(goal: goal, indexPath: indexPath)
+            }))
+                
+                
+            
+            alert.addAction(UIAlertAction(title: "It's Done, Let's Celebrate it!", style: .default, handler: {(alert: UIAlertAction!) in
                 
                 // Display Congratulation Message and Reward Image
                 let congratAlert = UIAlertController(title: "Congratulation!", message: "You now deserve \(goal.goalReward ?? "something you crave")! now. Celebrate your accomplishment with the reward RIGHT NOW!" , preferredStyle: .alert)
@@ -222,7 +230,12 @@ class GoalTableViewController: UITableViewController {
         return goalCell
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedIndex = indexPath.row
+        self.performSegue(withIdentifier: "taskList", sender: self)
+        
+    }
     
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -307,13 +320,19 @@ class GoalTableViewController: UITableViewController {
             destVC.goal = goal
             
         } else if segue.identifier == "taskList" {
+
+            let destVC = segue.destination as! TaskTableViewController
+            let goal = goals[selectedIndex]
+            destVC.selectedGoal = goal
             
-            if let _ = sender as? UITableViewCell, let vc = segue.destination as? TaskTableViewController {
- 
-                let indexPath = self.tableView.indexPathForSelectedRow
-                selectedGoal = goals[(indexPath?.row)!]
-                vc.selectedGoal = selectedGoal
-            }
+
+            /*
+            let _ = sender as? UITableViewCell,
+            let vc = segue.destination as? TaskTableViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            selectedGoal = goals[(indexPath?.row)!]
+            vc.selectedGoal = selectedGoal
+             */
             
         } else if segue.identifier == "settingsSegue" {
             let destVC = segue.destination as! SettingsViewController
