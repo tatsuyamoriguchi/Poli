@@ -19,20 +19,64 @@ class LocalNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         if response.actionIdentifier == "yes" {
-            
-            fetchTodayTasks()
-            print("\nToday's Task To-Do tasks :")
 
+        // Conclusion is just show login or open app.
+            
+/*       //Displays TodaTasksTableVC without navigationController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let otherVC = sb.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
+            appDelegate.window?.rootViewController = otherVC
+*/
+/*
+ // Open GoalTableVC but username info is lost. makes Opening GoalTVC meaningless. Better to just display a list
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let otherVC = sb.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
+            appDelegate.window?.rootViewController = otherVC
+*/
+            
+            /*
+            // Just open app
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyBoard.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
+            navigationController.pushViewController(newViewController, animated: true)
+*/
+/*
+            let navigationController = sb.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
+            
+            let otherVC = sb.instantiateViewController(withIdentifier: "goalTVC") as! GoalTableViewController
+            navigationController.popToViewController(otherVC, animated: true)
+//            appDelegate.window?.rootViewController = otherVC
+*/
+            
+            
+/* error: rootViewController is LoginViewController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+
+            let navigationController = appDelegate.window?.rootViewController as! RootViewController
+            //let destinationViewController = navigationController.viewControllers[0] as! TodaysTasksTableViewController
+            let destinationViewController = sb.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
+            navigationController.popToViewController(destinationViewController, animated: true)
+ */
+            
+
+            fetchTodayTasks()
+            
+            print("\nToday's Task To-Do tasks :")
             for task in tasks {
                 print("\nTask To-Do: ")
                 print(task.toDo ?? "Something went wrong to print task.toDo.\n")
             }
             print("\n")
 
-            
+ 
         } else {
             
         }
+        completionHandler()
         
     }
     

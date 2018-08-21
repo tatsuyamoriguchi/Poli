@@ -347,7 +347,10 @@ class GoalTableViewController: UITableViewController {
             let destVC = segue.destination as! LoginViewController
             destVC.isOpening = false
             
-        } else {}
+        } else if segue.identifier == "todaysTasksSegue" {
+            let destVC = segue.destination as! TodaysTasksTableViewController
+            print("Arriving here")
+        }
     }
     
 }

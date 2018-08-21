@@ -18,6 +18,7 @@
 		8C433CD3211272DC008B946F /* GoalRewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CD2211272DC008B946F /* GoalRewardViewController.swift */; };
 		8C433CD521127328008B946F /* GoalTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CD421127328008B946F /* GoalTitleViewController.swift */; };
 		8C493FEC2118B447007D490D /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C493FEB2118B447007D490D /* AlertNotification.swift */; };
+		8C4A8A4B212BD253009E1E9F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A8A4A212BD253009E1E9F /* RootViewController.swift */; };
 		8C4E79FE210F826B00483CCE /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FA210F826B00483CCE /* Goal+CoreDataClass.swift */; };
 		8C4E79FF210F826B00483CCE /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */; };
 		8C4E7A00210F826B00483CCE /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */; };
@@ -50,6 +51,7 @@
 		8C433CD2211272DC008B946F /* GoalRewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRewardViewController.swift; sourceTree = "<group>"; };
 		8C433CD421127328008B946F /* GoalTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTitleViewController.swift; sourceTree = "<group>"; };
 		8C493FEB2118B447007D490D /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
+		8C4A8A4A212BD253009E1E9F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8C4E79FA210F826B00483CCE /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				8C493FEB2118B447007D490D /* AlertNotification.swift */,
 				8CF25A0621195E3200634987 /* PlayAudio.swift */,
 				8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */,
+				8C4A8A4A212BD253009E1E9F /* RootViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				8C807A3D21267F890024D5EB /* TodaysTasksTableViewController.swift in Sources */,
 				8C433CD1211272C1008B946F /* GoalDueDateViewController.swift in Sources */,
 				8CB3A03B2104097F00774DE6 /* GoalTableViewCell.swift in Sources */,
+				8C4A8A4B212BD253009E1E9F /* RootViewController.swift in Sources */,
 				8C004A7020FEB3A600960B3A /* TaskTableViewController.swift in Sources */,
 				8C004A7220FEB3C100960B3A /* TaskViewController.swift in Sources */,
 				8CF25A0721195E3200634987 /* PlayAudio.swift in Sources */,
