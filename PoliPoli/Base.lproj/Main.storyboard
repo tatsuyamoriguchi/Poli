@@ -680,7 +680,7 @@ Log, Notes, Memo: </string>
                                     </label>
                                     <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="b6U-m7-kvA">
                                         <rect key="frame" x="0.0" y="142" width="414" height="384"/>
-                                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <date key="date" timeIntervalSinceReferenceDate="554268360.01891005">
                                             <!--2018-07-26 03:26:00 +0000-->
                                         </date>
@@ -702,7 +702,7 @@ Log, Notes, Memo: </string>
                                         <rect key="frame" x="193" y="542" width="51" height="31"/>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="I7m-oY-hns" firstAttribute="leading" secondItem="EZw-nK-7p9" secondAttribute="trailing" constant="20" id="2bL-HC-QlR"/>
                                     <constraint firstItem="Vwg-FQ-hP8" firstAttribute="leading" secondItem="Tkc-Ma-d63" secondAttribute="leading" id="4mc-Bn-Xnc"/>
@@ -725,7 +725,7 @@ Log, Notes, Memo: </string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tkc-Ma-d63" firstAttribute="bottom" secondItem="AVO-ld-eDD" secondAttribute="bottom" id="871-2c-Cwp"/>
                             <constraint firstItem="Tkc-Ma-d63" firstAttribute="leading" secondItem="AVO-ld-eDD" secondAttribute="leading" id="MBy-hd-GeE"/>
