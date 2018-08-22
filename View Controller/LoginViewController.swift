@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+  
         // Opening Animation
         maskView()
         animate()

@@ -62,7 +62,7 @@ class LocalNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             navigationController.popToViewController(destinationViewController, animated: true)
  */
             
-
+/*
             fetchTodayTasks()
             
             print("\nToday's Task To-Do tasks :")
@@ -72,10 +72,11 @@ class LocalNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             }
             print("\n")
 
- 
+ */
         } else {
             
         }
+ 
         completionHandler()
         
     }
