@@ -18,6 +18,9 @@ class GoalTableViewController: UITableViewController {
     // Declare a variable to pass to UpdateGoalViewController
     var selectedGoal: Goal?
     var selectedIndex: Int = 0
+    var statusString: String = ""
+    var status: Bool = false
+    
    
     @IBAction func logoutPressed(_ sender: Any) {
         // Logout and back to login view
@@ -129,7 +132,12 @@ class GoalTableViewController: UITableViewController {
         dateFormatter.dateFormat = "EE MMMM dd, yyyy"
         let date = dateFormatter.string(from: (goal.goalDueDate)! as Date)
         
-        goalCell.goalDueDateLabel.text = "Due Date: \(date)"
+        (statusString, status) = GoalProgress().goalStatusAlert(dueDate: goal.goalDueDate! as Date, isDone: goal.goalDone)
+        goalCell.goalDueDateLabel.text = "Due Date: \(date) - \(statusString)"
+        if status == true {goalCell.goalDueDateLabel.textColor = .red} else { goalCell.goalDueDateLabel.textColor = .gray }
+        
+        
+        
         
         
 /*

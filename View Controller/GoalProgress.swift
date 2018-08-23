@@ -23,7 +23,52 @@ class GoalProgress: NSNumber {
     var goal : Goal?
     var progressMessage: String?
     
+    
+    var statusString: String = ""
+    var status: Bool = false
+    
+    func goalStatusAlert(dueDate: Date, isDone: Bool) -> (String, Bool) {
+        
+        //let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        //let formattedDueDate = dateFormatter.string(from: dueDate! as Date)
+//         let date = dateFormatter.string(from: (goal.goalDueDate)! as Date)
+        let today = Date()
+        let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .month, .year])
+        let differenceOfDate = Calendar.current.dateComponents(components, from: today, to: dueDate as Date)
+        
+    
+        //print("differenceOfDate = ")
+        //print(differenceOfDate)
 
+        if isDone == false {
+        if differenceOfDate.day == 0 {
+            statusString = "Today is Due Date."
+            status = true
+            
+            
+        } else if differenceOfDate.day! <= 0 {
+            statusString = "Due Date has passed."
+            status = true
+            
+        } else if differenceOfDate.day! > 0 {
+            statusString = "\(differenceOfDate.day!) days left."
+            status = false
+            
+        } else {
+            print("differenceOfDate exception error")
+        }
+        } else {
+            statusString = ""
+            status = false
+        }
+        return (statusString, status)
+        
+    }
+    
+    
+    
+    
     
     func goalProgressCalc(goal: Goal, sender: UIViewController) -> Float {
         
