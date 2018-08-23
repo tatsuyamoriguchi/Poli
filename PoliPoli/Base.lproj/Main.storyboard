@@ -494,7 +494,8 @@ Log, Notes, Memo: </string>
                                 <rect key="frame" x="0.0" y="90" width="320" height="204"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" id="e2e-cr-PJQ"/>
+                                    <constraint firstAttribute="width" constant="320" id="Bt2-Fg-oIg"/>
+                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" id="L46-q2-EF4"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="DTT-wU-5AC" appends="YES" id="ngf-IO-sll"/>
@@ -516,13 +517,12 @@ Log, Notes, Memo: </string>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="GT5-ZS-cps"/>
-                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="Q3e-Q8-Zcs"/>
+                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="centerX" secondItem="qzN-vb-zSc" secondAttribute="centerX" id="VNp-vi-9do"/>
                             <constraint firstItem="lhY-DK-af4" firstAttribute="bottom" secondItem="nT0-uU-F2k" secondAttribute="bottom" constant="20" id="ZD5-Ep-5Mt"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="bq0-DP-yKU"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="gnt-RV-5bx"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="hag-bd-pcb"/>
-                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="20" id="mgY-BV-N2l"/>
+                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="20" id="mlC-eW-yWw"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="top" secondItem="lhY-DK-af4" secondAttribute="top" constant="20" id="uiM-SB-g8a"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="vn0-di-axK"/>
                         </constraints>
