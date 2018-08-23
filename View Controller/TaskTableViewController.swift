@@ -23,6 +23,8 @@ class TaskTableViewController: UITableViewController {
         self.navigationItem.prompt = "Task List"
         self.navigationItem.title = selectedGoal?.goalTitle
 
+        //title = selectedGoal?.goalTitle
+        //adjustLargeTitleSize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -263,3 +265,20 @@ class TaskTableViewController: UITableViewController {
     }
 
 }
+
+/*extension UIViewController {
+    func adjustLargeTitleSize() {
+        guard let title = title, #available(iOS 11.0, *) else { return }
+        
+        let maxWidth = UIScreen.main.bounds.size.width - 60
+        var fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
+        var width = title.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)]).width
+        
+        while width > maxWidth {
+            fontSize -= 1
+            width = title.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)]).width
+        }
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: fontSize)]
+    }
+}
+*/
