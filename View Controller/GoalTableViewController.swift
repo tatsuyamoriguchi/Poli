@@ -24,30 +24,29 @@ class GoalTableViewController: UITableViewController {
    
     @IBAction func logoutPressed(_ sender: Any) {
         // Logout and back to login view
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
         performSegue(withIdentifier: "logoutSegue", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        //self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+            userName = UserDefaults.standard.string(forKey: "userName")
+            let NSL_naviItem = String(format: NSLocalizedString("NSL_naviItem", value: "Login as %@", comment: ""), userName)
+            self.navigationItem.prompt = NSL_naviItem
+        }else {
+            self.navigationItem.prompt = "Log in error"
+        }
         
-        self.navigationItem.prompt = "Login as \(userName!)"
-        
-        
-        //let logout = UIBarButtonItem(barButtonSystemItem: .cancel , target: self, action: #selector(logoutPressed(_:)))
-        let logout = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutPressed(_:)))
-        //let settings = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(settingsPressed))
-        let settings = UIBarButtonItem(title: "Settings", style: .done, target: self, action: #selector(settingsPressed))
-        let todaysTasks = UIBarButtonItem(title: "Today's Tasks", style: .plain, target: self, action: #selector(todaysTasksPressed))
+        let NSL_logout = NSLocalizedString("NSL_logout", value: "Logout", comment: "")
+        let logout = UIBarButtonItem(title: NSL_logout, style: .plain, target: self, action: #selector(logoutPressed(_:)))
+ 
+        let NSL_settingsButton = NSLocalizedString("NSL_settingsButton", value: "Settings", comment: "")
+        let settings = UIBarButtonItem(title: NSL_settingsButton, style: .done, target: self, action: #selector(settingsPressed))
+        let NSL_today = NSLocalizedString("NSL_today", value: "Today's Tasks", comment: "")
+        let todaysTasks = UIBarButtonItem(title: NSL_today, style: .plain, target: self, action: #selector(todaysTasksPressed))
         
         navigationItem.rightBarButtonItems = [logout, settings, todaysTasks]
-        
-        
     }
     
     @objc func todaysTasksPressed() {
@@ -89,7 +88,7 @@ class GoalTableViewController: UITableViewController {
         }catch{
 
             print("\n")
-            print("Fetch Error: \(error)")
+            print("Fetch Error: \(error.localizedDescription)")
         }
     }
     
@@ -120,7 +119,8 @@ class GoalTableViewController: UITableViewController {
         
         goalCell.goalTitleLabel.text = goal.goalTitle
         goalCell.goalDescriptionTextView.text = goal.goalDescription
-        goalCell.goalRewardLabel.text = "Reward: " + (goal.goalReward)!
+        let NS_Reward = NSLocalizedString("NS_Reward", value: "Reward: ", comment: "")
+        goalCell.goalRewardLabel.text = NS_Reward + (goal.goalReward)!
         
         if let goalRewardImageData = goal.goalRewardImage as Data? {
             goalCell.goalRewardImageView.image = UIImage(data: goalRewardImageData)
@@ -129,29 +129,14 @@ class GoalTableViewController: UITableViewController {
         }
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EE MMMM dd, yyyy"
+        dateFormatter.dateStyle = .full
         let date = dateFormatter.string(from: (goal.goalDueDate)! as Date)
         
         (statusString, status) = GoalProgress().goalStatusAlert(dueDate: goal.goalDueDate! as Date, isDone: goal.goalDone)
-        goalCell.goalDueDateLabel.text = "Due Date: \(date) - \(statusString)"
+        let NSL_dueDateLabel = String(format: NSLocalizedString("NSL_dueDateLabel", value: "Due Date: %@ - %@", comment: " "), date, statusString)
+        goalCell.goalDueDateLabel.text = NSL_dueDateLabel
         if status == true {goalCell.goalDueDateLabel.textColor = .red} else { goalCell.goalDueDateLabel.textColor = .gray }
         
-        
-        
-        
-        
-/*
-         // Change background color in every other cell
-         // Not much meaningful
-        if indexPath.row % 2 == 0 {
-            goalCell.goalDescriptionTextView.backgroundColor = .white
-            goalCell.backgroundColor = .white
-        } else {
-            goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
-            goalCell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
-
-        }
-*/
         
         // Get goalProgress rate
         let goalProgress: Float = GoalProgress().goalProgressCalc(goal: goal, sender: self)
@@ -163,28 +148,39 @@ class GoalTableViewController: UITableViewController {
         }
         // Display Progress rate and a message in a cell
         let progressMessage: String = GoalProgress().goalProgressAchieved(percentage: goalProgress)
-        goalCell.goalProgressPercentageLabel.text = String(format: "%.1f", goalProgressPercentage100) + "% Done, " + progressMessage
+        let NSL_percentDone = NSLocalizedString("NSL_percentDone", value: "% Done, ", comment: " ")
+        goalCell.goalProgressPercentageLabel.text = String(format: "%.1f", goalProgressPercentage100) + NSL_percentDone + " "
+        + progressMessage
 
         // If all tasks have been done for the first time, display confirmation alert, if ok, change goalDone value to true
 
         if goal.goalDone == false && goalProgress == 1.0 {
+            let NSL_alertTitle_011 = NSLocalizedString("NSL_alertTitle_011", value: "Goal Achieved?", comment: " ")
+            let NSL_alertMessage_011 = String(format: NSLocalizedString("NSL_alertMessage_011 ", value: "All tasks registered to \"%@\" have been completed. If you have finished, press 'Celebrate it!' If you still need to continue, press 'Add More Task' and go to Task List view to add more.", comment: " "), goal.goalTitle!)
             
-            let alert = UIAlertController(title: "Goal Achieved?", message: "All tasks registered to \"\(goal.goalTitle!)\" have been completed. If you have finished, press 'Celebrate it!' If you still need to continue, press 'Add More Task' and go to Task List view to add more.", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSL_alertTitle_011, message: NSL_alertMessage_011, preferredStyle: .alert)
             //alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
            
-            
-            alert.addAction(UIAlertAction(title: "Not Done Yet, Add More Task", style: .default, handler: {(alert: UIAlertAction!) in
+            let NSL_alertTitle_012 = NSLocalizedString("NSL_alertTitel_012", value: "Not Done Yet, Add More Task", comment: " ")
+            alert.addAction(UIAlertAction(title: NSL_alertTitle_012, style: .default, handler: {(alert: UIAlertAction!) in
                
                
                 self.addMoreTask(goal: goal, indexPath: indexPath)
             }))
                 
                 
-            
-            alert.addAction(UIAlertAction(title: "It's Done, Let's Celebrate it!", style: .default, handler: {(alert: UIAlertAction!) in
+            let NSL_alertTitle_013 = NSLocalizedString("NSL_alertTitle_013", value: "It's Done, Let's Celebrate it!", comment: " ")
+            alert.addAction(UIAlertAction(title: NSL_alertTitle_013, style: .default, handler: {(alert: UIAlertAction!) in
                 
                 // Display Congratulation Message and Reward Image
-                let congratAlert = UIAlertController(title: "Congratulation!", message: "You now deserve \(goal.goalReward ?? "something you crave")! now. Celebrate your accomplishment with the reward RIGHT NOW!" , preferredStyle: .alert)
+                
+                let NSL_alertTitle_014 = NSLocalizedString("NSL_alertTitle_014", value: "Congratulation!", comment: "")
+                
+                let reward: String?
+                if goal.goalReward == "" { reward = "PoliPoli" } else { reward = goal.goalReward }
+                let NSL_alertMessage_014 = String(format: NSLocalizedString("NSL_alertMessage_014", value: "You now deserve %@! now. Celebrate your accomplishment with the reward RIGHT NOW!", comment: ""), reward!)
+                
+                let congratAlert = UIAlertController(title: NSL_alertTitle_014, message: NSL_alertMessage_014, preferredStyle: .alert)
                 
                 let imageView = UIImageView(frame: CGRect(x:150, y:110, width: 150, height: 150))
                 
@@ -208,7 +204,7 @@ class GoalTableViewController: UITableViewController {
                     try context.save()
                     
                 }catch{
-                    print("Saving Error: \(error)")
+                    print("Saving Error: \(error.localizedDescription)")
                 }
                 
                 
@@ -251,12 +247,13 @@ class GoalTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let goal = goals[indexPath.row]
        
-        let updateAction = UITableViewRowAction(style: .default, title: "Update") { (action, indexPath) in
+        let NSL_updateButton_01 = NSLocalizedString("NSL_updateButton_01", value: "Update", comment: "")
+        let updateAction = UITableViewRowAction(style: .default, title: NSL_updateButton_01) { (action, indexPath) in
             // Call update action
             self.updateAction(goal: goal, indexPath: indexPath)
         }
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+        let NSL_deleteButton_01 = NSLocalizedString("NSL_deleteButton_01", value: "Delete", comment: "")
+        let deleteAction = UITableViewRowAction(style: .default, title: NSL_deleteButton_01) { (action, indexPath) in
             // Call delete action
             self.deleteAction(goal: goal, indexPath: indexPath)
 
@@ -279,8 +276,11 @@ class GoalTableViewController: UITableViewController {
     
     private func deleteAction(goal: Goal, indexPath: IndexPath) {
        // Pop up an alert to warn a user of deletion of data
-        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this?", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+        let NSL_alertTitle_015 = NSLocalizedString("NSL_alertTitle_015", value: "Delete", comment: "")
+        let NSL_alertMessage_015 = NSLocalizedString("NSL_alertMessage_015", value: "Are you sure you want to delete this?", comment: "")
+        let alert = UIAlertController(title: NSL_alertTitle_015, message: NSL_alertMessage_015, preferredStyle: .alert)
+        let NSL_deleteButton_02 = NSLocalizedString("NSL_deleteButton_02", value: "Delete", comment: "")
+        let deleteAction = UIAlertAction(title: NSL_deleteButton_02, style: .default) { (action) in
             
             // Declare ManagedObjectContext
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -294,7 +294,7 @@ class GoalTableViewController: UITableViewController {
                
                 
             } catch {
-                print("Saving Failed: \(error)")
+                print("Saving Failed: \(error.localizedDescription)")
             }
             // Fetch the updated data
             self.fetchData()
@@ -302,8 +302,8 @@ class GoalTableViewController: UITableViewController {
             // Refresh tableView with updated data
             self.tableView.reloadData()
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
+        let cancelAction = UIAlertAction(title: NSL_cancelButton, style: .cancel, handler: nil)
         
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
@@ -356,7 +356,9 @@ class GoalTableViewController: UITableViewController {
             destVC.isOpening = false
             
         } else if segue.identifier == "todaysTasksSegue" {
-            _ = segue.destination as! TodaysTasksTableViewController
+            let destVC = segue.destination as! TodaysTasksTableViewController
+            destVC.userName = userName
+            
             
         }
     }

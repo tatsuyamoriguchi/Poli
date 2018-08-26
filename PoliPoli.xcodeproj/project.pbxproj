@@ -25,6 +25,8 @@
 		8C4E7A01210F826B00483CCE /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FD210F826B00483CCE /* Task+CoreDataProperties.swift */; };
 		8C57DAC9212A577700CE9729 /* PoliPoliIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C57DAC8212A577700CE9729 /* PoliPoliIcon.png */; };
 		8C58CE27211B618900AE695F /* GoalDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58CE26211B618900AE695F /* GoalDoneViewController.swift */; };
+		8C616A8C2130CCF200784934 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C616A8A2130CCF200784934 /* InfoPlist.strings */; };
+		8C616A8F2130CCF200784934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C616A8D2130CCF200784934 /* Localizable.strings */; };
 		8C6B80B020FD749C0055D505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B80AF20FD749C0055D505 /* AppDelegate.swift */; };
 		8C6B80B520FD749C0055D505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6B80B320FD749C0055D505 /* Main.storyboard */; };
 		8C6B80B820FD749C0055D505 /* PoliPoli.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B80B620FD749C0055D505 /* PoliPoli.xcdatamodeld */; };
@@ -59,6 +61,8 @@
 		8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoliPoli.entitlements; sourceTree = "<group>"; };
 		8C57DAC8212A577700CE9729 /* PoliPoliIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliPoliIcon.png; sourceTree = "<group>"; };
 		8C58CE26211B618900AE695F /* GoalDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDoneViewController.swift; sourceTree = "<group>"; };
+		8C616A8B2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C616A8E2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C6B80AC20FD749C0055D505 /* PoliPoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliPoli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6B80AF20FD749C0055D505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6B80B420FD749C0055D505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		8C6B80B920FD749E0055D505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C6B80BC20FD749E0055D505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C6B80BE20FD749E0055D505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C7D95F521305A23005F08D2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		8C7D95F621305A23005F08D2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTasksTableViewController.swift; sourceTree = "<group>"; };
 		8C98C31C21191B1F00FAFADE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,9 +122,9 @@
 		8C6B80A320FD749C0055D505 = {
 			isa = PBXGroup;
 			children = (
+				8C6B80AE20FD749C0055D505 /* PoliPoli */,
 				8C004A7320FEB3E300960B3A /* View Controller */,
 				8C6B80CC20FDBFAF0055D505 /* Core Data */,
-				8C6B80AE20FD749C0055D505 /* PoliPoli */,
 				8C6B80AD20FD749C0055D505 /* Products */,
 				8C98C31B21191B1E00FAFADE /* Frameworks */,
 			);
@@ -142,6 +148,8 @@
 				8C6B80B920FD749E0055D505 /* Assets.xcassets */,
 				8C6B80BB20FD749E0055D505 /* LaunchScreen.storyboard */,
 				8C6B80BE20FD749E0055D505 /* Info.plist */,
+				8C616A8D2130CCF200784934 /* Localizable.strings */,
+				8C616A8A2130CCF200784934 /* InfoPlist.strings */,
 			);
 			path = PoliPoli;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 8C6B80A320FD749C0055D505;
 			productRefGroup = 8C6B80AD20FD749C0055D505 /* Products */;
@@ -234,9 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C57DAC9212A577700CE9729 /* PoliPoliIcon.png in Resources */,
+				8C616A8F2130CCF200784934 /* Localizable.strings in Resources */,
 				8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */,
 				8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */,
 				8C6B80B520FD749C0055D505 /* Main.storyboard in Resources */,
+				8C616A8C2130CCF200784934 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +288,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8C616A8A2130CCF200784934 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C616A8B2130CCF200784934 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8C616A8D2130CCF200784934 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C616A8E2130CCF200784934 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8C6B80B320FD749C0055D505 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8C6B80B420FD749C0055D505 /* Base */,
+				8C7D95F521305A23005F08D2 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -289,6 +317,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C6B80BC20FD749E0055D505 /* Base */,
+				8C7D95F621305A23005F08D2 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -300,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -360,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

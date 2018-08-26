@@ -15,11 +15,20 @@ class LocalNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     //var context: NSManagedObjectContext!
     //let selectedGoal: Goal?
     var tasks = [Task]()
+    var userName: String! = nil
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         if response.actionIdentifier == "yes" {
 
+            
+/*            // Opens TodaysTasksTableVC without navigation controller
+            let rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
+            let window = UIApplication.shared.keyWindow
+            window?.rootViewController = rootVC
+            
+  */
+            
         // Conclusion is just show login or open app.
             
 /*       //Displays TodaTasksTableVC without navigationController
@@ -28,16 +37,27 @@ class LocalNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             let otherVC = sb.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
             appDelegate.window?.rootViewController = otherVC
 */
-/*
+
  // Open GoalTableVC but username info is lost. makes Opening GoalTVC meaningless. Better to just display a list
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let otherVC = sb.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
-            appDelegate.window?.rootViewController = otherVC
-*/
+           
             
-            /*
-            // Just open app
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+            if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+
+                let rootVC = sb.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
+                let newViewController = sb.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController
+                appDelegate.window?.rootViewController = rootVC
+                rootVC.pushViewController(newViewController, animated: true)
+                
+            }else {
+                let rootVC = sb.instantiateViewController(withIdentifier: "logInVC") as! LoginViewController
+                appDelegate.window?.rootViewController = rootVC
+                
+                }
+            
+
+ /*           // Just open app
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let navigationController = storyBoard.instantiateViewController(withIdentifier: "rootNavigator") as! RootViewController
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "todayVC") as! TodaysTasksTableViewController

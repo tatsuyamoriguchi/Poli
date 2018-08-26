@@ -20,7 +20,8 @@ class TaskTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.prompt = "Task List"
+        let NSL_naviTask = NSLocalizedString("NSL_naviTask", value: "Task List", comment: "")
+        self.navigationItem.prompt = NSL_naviTask
         self.navigationItem.title = selectedGoal?.goalTitle
 
         //title = selectedGoal?.goalTitle
@@ -61,7 +62,7 @@ class TaskTableViewController: UITableViewController {
                 tasks = try context.fetch(fetchRequest)
                 
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
         }else{
             print("selectedGoal was nil.")
@@ -70,7 +71,9 @@ class TaskTableViewController: UITableViewController {
     
     func goalDoneAlert() {
 
-        AlertNotification().alert(title: "Goal Already Done", message: "Unable to change task data. To enable task data editing, go back to Goal List view and use Update to change the goal's done status to Undone.", sender: self)
+        let NSL_alertTitle_021 = NSLocalizedString("NSL_alertTitle_021", value: "Goal Already Done", comment: "")
+        let NSL_alertMessage_021 = NSLocalizedString("NSL_alertMessage_021", value: "Unable to change task data. To enable task data editing, go back to Goal List view and use Update to change the goal's done status to Undone.", comment: "")
+        AlertNotification().alert(title: NSL_alertTitle_021, message: NSL_alertMessage_021, sender: self)
         
     }
     
@@ -95,7 +98,7 @@ class TaskTableViewController: UITableViewController {
         let task = tasks[indexPath.row]
       
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EE MMMM dd, yyyy"
+        dateFormatter.dateStyle = .full
         let dateString = dateFormatter.string(from: (task.date)! as Date)
         
         taskCell.detailTextLabel?.text = dateString
@@ -158,24 +161,21 @@ class TaskTableViewController: UITableViewController {
                     PlayAudio.sharedInstance.playClick(fileName: "smallbark", fileExt: ".wav")
                     
                     
-                    
-                    //AlertNotification().alert(title: "You Did it!", message: "Good Job! You completed a task, \"\(task.toDo!)\".", sender: self)
-                    
                 }
             }
             do {
                 try context.save()
                 
             } catch {
-                print("Cannot save object: \(error)")
+                print("Cannot save object: \(error.localizedDescription)")
             }
             
         }
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let task = tasks[indexPath.row]
-        
-        let updateAction = UITableViewRowAction(style: .default, title: "Update") { (action, indexPath) in
+        let NSL_updateButton_02 = NSLocalizedString("NSL_updateButton_02", value: "Update", comment: "")
+        let updateAction = UITableViewRowAction(style: .default, title: NSL_updateButton_02) { (action, indexPath) in
             if task.goalAssigned?.goalDone == true {
                 self.goalDoneAlert()
                 
@@ -185,8 +185,8 @@ class TaskTableViewController: UITableViewController {
             }
             
         }
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+        let NSL_deleteButton_03 = NSLocalizedString("NSL_deleteButton_03", value: "Delete", comment: "")
+        let deleteAction = UITableViewRowAction(style: .default, title: NSL_deleteButton_03) { (action, indexPath) in
             if task.goalAssigned?.goalDone == true {
                 self.goalDoneAlert()
                 
@@ -208,8 +208,11 @@ class TaskTableViewController: UITableViewController {
     
     private func deleteAction(task: Task, indexPath: IndexPath) {
         // Pop up an alert to warn a user of deletion of data
-        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this?", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+        let NSL_alertTitle_022 = NSLocalizedString("NSL_alertTitle_022", value: "Delete", comment: "")
+        let NSL_alertMessage_022 = NSLocalizedString("NSL_alertMessage_022", value: "Are you sure you want to delete this?", comment: "")
+        let alert = UIAlertController(title: NSL_alertTitle_022, message: NSL_alertMessage_022, preferredStyle: .alert)
+        let NSL_deleteButton_04 = NSLocalizedString("NSL_deleteButton_04", value: "Delete", comment: "")
+        let deleteAction = UIAlertAction(title: NSL_deleteButton_04, style: .default) { (action) in
             
             // Declare ManagedObjectContext
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -221,15 +224,15 @@ class TaskTableViewController: UITableViewController {
             do {
                 try context.save()
             } catch {
-                print("Saving Failed: \(error)")
+                print("Saving Failed: \(error.localizedDescription)")
             }
             // Fetch the updated data
             self.fetchData()
             // Refresh tableView with updated data
             self.tableView.reloadData()
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
+        let cancelAction = UIAlertAction(title: NSL_cancelButton, style: .cancel, handler: nil)
         
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
@@ -266,19 +269,3 @@ class TaskTableViewController: UITableViewController {
 
 }
 
-/*extension UIViewController {
-    func adjustLargeTitleSize() {
-        guard let title = title, #available(iOS 11.0, *) else { return }
-        
-        let maxWidth = UIScreen.main.bounds.size.width - 60
-        var fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
-        var width = title.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)]).width
-        
-        while width > maxWidth {
-            fontSize -= 1
-            width = title.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)]).width
-        }
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: fontSize)]
-    }
-}
-*/

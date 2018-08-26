@@ -21,6 +21,7 @@ class GoalDueDateViewController: UIViewController {
     var goalDescription: String = ""
     var goal: Goal!
     
+    
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
@@ -31,7 +32,8 @@ class GoalDueDateViewController: UIViewController {
         }
         
         datePicker = UIDatePicker()
-        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextGoal))
+        let NSL_nextButton_03 = NSLocalizedString("NSL_nextButton_03", value: "Next", comment: "")
+        let nextButton = UIBarButtonItem(title: NSL_nextButton_03, style: .done, target: self, action: #selector(nextGoal))
         self.navigationItem.rightBarButtonItem = nextButton
 
         // Do any additional setup after loading the view.
@@ -60,7 +62,11 @@ class GoalDueDateViewController: UIViewController {
             destVC.goal = goal
             destVC.goalTitle = goalTitle
             destVC.goalDescription = goalDescription
-            destVC.goalDueDate = goalDueDatePicker.date as Date
+            
+            let dueDate = goalDueDatePicker.date as Date
+            let startOfDate = Calendar.current.startOfDay(for: dueDate)
+            destVC.goalDueDate = startOfDate
+            print(startOfDate)
         }
     }
     

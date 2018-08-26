@@ -14,8 +14,10 @@ class AlertNotification: UIViewController {
     // Alert with passing title and message
     func alert(title: String, message: String, sender: Any) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
+        alert.addAction(UIAlertAction(title: NSL_cancelButton, style: .default, handler: nil))
+        let NSL_oK = NSLocalizedString("NSL_oK", value: "OK", comment: "")
+        alert.addAction(UIAlertAction(title: NSL_oK, style: .default, handler: nil))
 
         (sender as AnyObject).present(alert, animated: true, completion: nil)
     }

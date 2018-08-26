@@ -28,9 +28,11 @@ class GoalDoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if userName != "" {
-            self.navigationItem.prompt = "Login as \(userName)"
+            let NSL_naviPrompt = String(format:NSLocalizedString("NSL_naviPormpt", value: "Login as %@", comment: ""), userName)
+            self.navigationItem.prompt = NSL_naviPrompt
         } else {
-            self.navigationItem.prompt = "Login info is missing!"
+            let NSL_naviMissing = NSLocalizedString("NSL_naviMissing", value: "Login info is missing!", comment: "")
+            self.navigationItem.prompt = NSL_naviMissing
         }
         goalTitleLabel.text = goal.goalTitle
         goalDoneSwitch.isOn = goal.goalDone
@@ -47,7 +49,7 @@ class GoalDoneViewController: UIViewController {
         do {
             try context.save()
         }catch{
-            print("Saving Error: \(error)")
+            print("Saving Error: \(error.localizedDescription)")
         }
 
         //navigationController!.popToRootViewController(animated: true)

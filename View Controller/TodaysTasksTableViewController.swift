@@ -14,20 +14,26 @@ class TodaysTasksTableViewController: UITableViewController {
     var context: NSManagedObjectContext!
     var tasks = [Task]()
     var selectedGoal: Goal?
+    var userName: String = ""
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.prompt = "Task List"
-        self.navigationItem.title = "Today's Tasks To-Do"
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-
+        //let NSL_taskList = NSLocalizedString("NSL_taskList", value: "Task List", comment: "")
+        //self.navigationItem.prompt = NSL_taskList
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+            userName = UserDefaults.standard.string(forKey: "userName")!
+            self.navigationItem.prompt = "Login as \(userName)"
+        }else {
+            self.navigationItem.prompt = "Login Error"
+        }
+        
+        let NSL_naviToday = NSLocalizedString("NSL_naviToday", value: "Today's Tasks To-Do", comment: "")
+        self.navigationItem.title = NSL_naviToday
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +49,6 @@ class TodaysTasksTableViewController: UITableViewController {
         // Reload the table view
         tableView.reloadData()
     }
-    
     
     
     func fetchData() {
@@ -77,19 +82,15 @@ class TodaysTasksTableViewController: UITableViewController {
         
         do {
             tasks = try context.fetch(fetchRequest)
-            //print(tasks)
-            
             
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
-        
     }
     
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
     
@@ -108,7 +109,7 @@ class TodaysTasksTableViewController: UITableViewController {
         cell.textLabel?.text = task.toDo
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EE MMMM dd, yyyy"
+        dateFormatter.dateStyle = .full
         let dateString = dateFormatter.string(from: (task.date)! as Date)
        
         if let goalTitle = task.goalAssigned?.goalTitle {
@@ -138,41 +139,6 @@ class TodaysTasksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toTaskList", sender: self)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation

@@ -84,7 +84,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             do {
                 try context.save()
             }catch{
-                print("Saving Error: \(error)")
+                print("Saving Error: \(error.localizedDescription)")
             }
         
             navigationController!.popToRootViewController(animated: true)
@@ -101,11 +101,13 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        
-        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a photo.", preferredStyle: .actionSheet)
+        let NSL_alertTitle_018 = NSLocalizedString("NSL_alertTitle_018", value: "Photo Source", comment: "")
+        let NSL_alertMessage_018 = NSLocalizedString("NSL_alertMessage_018", value: "Choose a photo.", comment: "")
+        let actionSheet = UIAlertController(title: NSL_alertTitle_018, message: NSL_alertMessage_018, preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            let NSL_alertTitle_019 = NSLocalizedString("NSL_alertTitle_019", value: "Camera", comment: "")
+            actionSheet.addAction(UIAlertAction(title: NSL_alertTitle_019, style: .default, handler: { (action: UIAlertAction) in
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
@@ -114,12 +116,13 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             print("Camera is not available.")
             print("\n")
         }
-        
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+        let NSL_alertTitle_020 = NSLocalizedString("NSL_alertTitle_020", value: "Photo Library", comment: "")
+        actionSheet.addAction(UIAlertAction(title: NSL_alertTitle_020, style: .default, handler: { (action: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
+        actionSheet.addAction(UIAlertAction(title: NSL_cancelButton, style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
         
     }

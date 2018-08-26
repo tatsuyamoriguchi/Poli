@@ -37,7 +37,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         timeFormatter.timeStyle = .short
         let notificationTime = timeFormatter.string(from: notificationTimePicker.date)
         // Alert with notificaitonTime, Clicking OK fires notificaiton at preset time, Cancel terminates notification
-        alert(title: "Notificaiton Time Set", message: "\(notificationTime)", actionPassed: setNotification)
+        let NSL_alertTitle_006 = NSLocalizedString("NSL_alertMessage_006", value: "Notificaiton Time Set", comment: " ")
+        alert(title: NSL_alertTitle_006, message: "\(notificationTime)", actionPassed: setNotification)
         
         
     }
@@ -58,9 +59,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         userNameTextField.delegate = self
         passwordTextField.delegate = self
         
-        //userName = "dummy"
+        let NSL_alertTitle_007 = NSLocalizedString("NSL_alertTitle_007", value: "User Name Mismatched", comment: " ")
+        let NSL_alertMessage_007 = NSLocalizedString("NSL_alertMessage_007", value: "User Name you used doesn't match with stored one, somehow. Please press ok to go back to Login view and re-login.", comment: " ")
         if userName != storedUserName {
-            alert(title: "User Name Mismatched", message: "User Name you used doesn't match with stored one, somehow. Please press ok to go back to Login view and re-login.", actionPassed: loginSegue)
+            alert(title: NSL_alertTitle_007, message: NSL_alertMessage_007, actionPassed: loginSegue)
             
         } else {
             userNameTextField.text = storedUserName
@@ -114,7 +116,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
         if userNameTextField.text == "" || passwordTextField.text == "" {
             // no enough input entry alert
-            alert(title: "Need More Information", message: "Fill both information: User Name and Password", actionPassed: noAction)
+            let NSL_alertTitle_008 = NSLocalizedString("NSL_alertTitle_008", value: "Need More Information", comment: " ")
+            let NSL_alertMessage_008 = NSLocalizedString("NSL_alertMessage_008", value: "Fill both information: User Name and Password", comment: " ")
+            alert(title: NSL_alertTitle_008, message: NSL_alertMessage_008, actionPassed: noAction)
             
         } else {
             // Set a user login account
@@ -122,24 +126,31 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             UserDefaults.standard.set(userPassword, forKey: "userPassword")
             userNameTextField.text = ""
             passwordTextField.text = ""
-            alert(title: "User Information Updated", message: "Please re-login with new user information.", actionPassed: loginSegue)
+            let NSL_alertTitle_009 = NSLocalizedString("NSL_alertTitle_009", value: "User Information Updated", comment: " ")
+            let NSL_alertMessage_009 = NSLocalizedString("NSL_alertMessage_009", value: "Please re-login with new user information.", comment: " ")
+            alert(title: NSL_alertTitle_009, message: NSL_alertMessage_009, actionPassed: loginSegue)
             
         }
     }
     
     func setNotification() {
         
-        let yes = UNNotificationAction(identifier: "yes", title: "Yeees!", options: [.foreground])
-        let no = UNNotificationAction(identifier: "no", title: "Dismiss for Now", options: [])
+        let NSL_notifTitle_001 = NSLocalizedString("NSL_notifTitle_001", value: "Yeees!", comment: " ")
+        let NSL_notifTitle_002 = NSLocalizedString("NSL_notifTitle_002", value: "Dismiss for Now", comment: " ")
+        let yes = UNNotificationAction(identifier: "yes", title: NSL_notifTitle_001, options: [.foreground])
+        let no = UNNotificationAction(identifier: "no", title: NSL_notifTitle_002, options: [])
         
         let category = UNNotificationCategory(identifier: "today", actions: [yes, no], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
         let requestIdentifier = "DailyReminder"
         let content = UNMutableNotificationContent()
-        content.title = "Daily Reminder"
-        content.subtitle = "Open PoliPoli"
-        content.body = "Time to focus on tasks to-do!"
+        let NSL_contentTitle = NSLocalizedString("NSL_contentTitle", value: "Daily Reminder", comment: " ")
+        let NSL_contentSubtitle = NSLocalizedString("NSL_contentSubtitle ", value: "Open PoliPoli", comment: " ")
+        let NSL_contentBody = NSLocalizedString("NSL_contentBody", value: "Time to focus on tasks to-do!", comment: " ")
+        content.title = NSL_contentTitle
+        content.subtitle = NSL_contentSubtitle
+        content.body = NSL_contentBody
         content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "today"
 
@@ -155,8 +166,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         // If sets trigger repeats option to true, notificaiton doesn't attach image on second time or later.
          
         guard let url = Bundle.main.url(forResource: "PoliPoliIcon", withExtension: "png")
-            else {  print("unable to find image!")
-                return }
+            else {
+                print("unable to find image!")
+                return
+        }
 
         do {
             let attachment = try UNNotificationAttachment(identifier: requestIdentifier, url: url, options: nil)
@@ -173,15 +186,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         UNUserNotificationCenter.current().add(notificationReq) { (error: Error?) in
 
             if let error = error {
-                print("Notification Request Error: \(error).localizedDescription)")
+                print("Notification Request Error: \(error.localizedDescription)")
             }
         }
  
-     /*   let center = UNUserNotificationCenter.current()
-        center.add(notificationReq) { (error) in
-            print("Error: \(String(describing: error))")
-        }
-       */
         goalListSegue()
     }
     
@@ -190,12 +198,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func alert(title: String, message: String, actionPassed: @escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+        let NSL_alertTitle_010 = NSLocalizedString("NSL_alertTitle_010", value: "OK", comment: " ")
+        alert.addAction(UIAlertAction(title: NSL_alertTitle_010, style: .default, handler: {
             action in
             actionPassed()
         }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        let NSL_alertCancel = NSLocalizedString("NSL_alertCancel", value: "Cancel", comment: " ")
+        alert.addAction(UIAlertAction(title: NSL_alertCancel, style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -203,17 +212,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func noAction() {
         // Do nothing for  alert
     }
-/*
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
-            action in
-            self.loginSegue()
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-*/
+
     func loginSegue() {
         performSegue(withIdentifier: "backtoLoginSegue", sender: nil)
     }

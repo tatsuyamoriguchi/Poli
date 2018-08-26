@@ -1,0 +1,132 @@
+
+/* Class = "UIButton"; normalTitle = "Update Account Information"; ObjectID = "0WM-Lc-Sbo"; */
+"0WM-Lc-Sbo.normalTitle" = "Update Account Information";
+
+/* Class = "UILabel"; text = "Goal Title"; ObjectID = "2oG-TI-W87"; */
+"2oG-TI-W87.text" = "Goal Title";
+
+/* Class = "UILabel"; text = "BFF App to Help You to Achieve Goals"; ObjectID = "6a0-aQ-bA3"; */
+"6a0-aQ-bA3.text" = "BFF App to Help You to Achieve Goals";
+
+/* Class = "UILabel"; text = "PoliPoli"; ObjectID = "81V-2E-PAo"; */
+"81V-2E-PAo.text" = "PoliPoli";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "8am-Ip-PY2"; */
+"8am-Ip-PY2.placeholder" = "Password";
+
+/* Class = "UINavigationItem"; title = "My Goals"; ObjectID = "AqS-Uw-cHf"; */
+"AqS-Uw-cHf.title" = "My Goals";
+
+/* Class = "UILabel"; text = "Is Important-Urgent?"; ObjectID = "EZw-nK-7p9"; */
+"EZw-nK-7p9.text" = "Is Important-Urgent?";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "FgT-RZ-aqL"; */
+"FgT-RZ-aqL.normalTitle" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "HYm-ox-PTk"; */
+"HYm-ox-PTk.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Password: "; ObjectID = "Kde-Yv-OSL"; */
+"Kde-Yv-OSL.text" = "Password: ";
+
+/* Class = "UITextView"; text = "Change yourself by achieving goals!   Let's set up an achievable, measurable, specific, and worthwhile goal, which achievement gives you practical value to your life or work.  Be the number one fashion photographer.\" is not a goal, it's your vision and dream to realize. You set up numerous goals to get closer to your vision. Vision is the top of mountan to climb, and has to be just ONE. Vision doesn't have to be one in your life time, but should be one at time.\n \"Complete YouTube video series 'Mastering Fashion Photoshoot Technique'\" is a goal to achieve. It's a milestone which let you physically get closer to the top of the mountain.  A task has to be specific and singular action to complete. \"Learn how to take a cool scenery photo\" is not specific enough as a task. \"Research on how to choose the best lense to take a Ocean view photo.\" is specific and small enough to complete. Set one task to complete within a couple of hours.\n \n\"Wake up at 6am every weekday\" is NOT a goal, it's a routine task or habit to establish in order to complete tasks. You could add routine habits to establish as tasks, but these are more likely tasks for a goal \"Establish good daily routines and habits to be more productive to work on tasks\". Buy pickel, a pair of boots, map, water bottle to carry are tasks to get you to a milestone, goal.  Set up a goal which you can complete within 1 - 5 weeks. Setting smaller goals motivates you to achieve more. "; ObjectID = "LIA-Jy-RCv"; */
+"LIA-Jy-RCv.text" = "Change yourself by achieving goals!   Let's set up an achievable, measurable, specific, and worthwhile goal, which achievement gives you practical value to your life or work.  Be the number one fashion photographer.\" is not a goal, it's your vision and dream to realize. You set up numerous goals to get closer to your vision. Vision is the top of mountan to climb, and has to be just ONE. Vision doesn't have to be one in your life time, but should be one at time.\n \"Complete YouTube video series 'Mastering Fashion Photoshoot Technique'\" is a goal to achieve. It's a milestone which let you physically get closer to the top of the mountain.  A task has to be specific and singular action to complete. \"Learn how to take a cool scenery photo\" is not specific enough as a task. \"Research on how to choose the best lense to take a Ocean view photo.\" is specific and small enough to complete. Set one task to complete within a couple of hours.\n \n\"Wake up at 6am every weekday\" is NOT a goal, it's a routine task or habit to establish in order to complete tasks. You could add routine habits to establish as tasks, but these are more likely tasks for a goal \"Establish good daily routines and habits to be more productive to work on tasks\". Buy pickel, a pair of boots, map, water bottle to carry are tasks to get you to a milestone, goal.  Set up a goal which you can complete within 1 - 5 weeks. Setting smaller goals motivates you to achieve more. ";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "Nax-AD-kiR"; */
+"Nax-AD-kiR.title" = "Settings";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Ne9-fc-lnA"; */
+"Ne9-fc-lnA.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Type a To-Do to be done within an hour."; ObjectID = "Vwg-FQ-hP8"; */
+"Vwg-FQ-hP8.placeholder" = "Type a To-Do to be done within an hour.";
+
+/* Class = "UILabel"; text = "Notifications are not authorized on this device. Please open this device's Settings, turn on  Allow Notifications."; ObjectID = "W4H-Gu-3hI"; */
+"W4H-Gu-3hI.text" = "Notifications are not authorized on this device. Please open this device's Settings, turn on  Allow Notifications.";
+
+/* Class = "UITextField"; placeholder = "User Name"; ObjectID = "WPP-KT-HvA"; */
+"WPP-KT-HvA.placeholder" = "User Name";
+
+/* Class = "UIButton"; normalTitle = "Set Notificaiton Time"; ObjectID = "WRT-sl-gbc"; */
+"WRT-sl-gbc.normalTitle" = "Set Notificaiton Time";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Wht-4o-Aqe"; */
+"Wht-4o-Aqe.normalTitle" = "Cancel";
+
+/* Class = "UITextField"; placeholder = "Choose a reward and its image that you really crave."; ObjectID = "X0I-SN-cUg"; */
+"X0I-SN-cUg.placeholder" = "Choose a reward and its image that you really crave.";
+
+/* Class = "UILabel"; text = "Goal Due Date"; ObjectID = "Xre-lg-kuf"; */
+"Xre-lg-kuf.text" = "Goal Due Date";
+
+/* Class = "UILabel"; text = "User Name: "; ObjectID = "ZXz-Mm-ZAf"; */
+"ZXz-Mm-ZAf.text" = "User Name: ";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "abv-Qo-zWm"; */
+"abv-Qo-zWm.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ahA-YV-Xcy"; */
+"ahA-YV-Xcy.text" = "Label";
+
+/* Class = "UILabel"; text = "Goal Reward"; ObjectID = "aqB-4O-fKy"; */
+"aqB-4O-fKy.text" = "Goal Reward";
+
+/* Class = "UILabel"; text = "Use this date as Task's Due Date or Starting Date"; ObjectID = "cUc-0S-wgD"; */
+"cUc-0S-wgD.text" = "Use this date as Task's Due Date or Starting Date";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "cqk-Cx-Mfp"; */
+"cqk-Cx-Mfp.normalTitle" = "Login";
+
+/* Class = "UIViewController"; title = "Goal Reward"; ObjectID = "dSK-z6-Wqj"; */
+"dSK-z6-Wqj.title" = "Goal Reward";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "dxT-jc-r3f"; */
+"dxT-jc-r3f.text" = "Subtitle";
+
+/* Class = "UIViewController"; title = "Goal Due Date"; ObjectID = "ecZ-ts-SrN"; */
+"ecZ-ts-SrN.title" = "Goal Due Date";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "feu-UW-y72"; */
+"feu-UW-y72.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Turn Off Switch to Undone this Goal"; ObjectID = "hHv-qQ-qLs"; */
+"hHv-qQ-qLs.text" = "Turn Off Switch to Undone this Goal";
+
+/* Class = "UILabel"; text = "Is Done?"; ObjectID = "iiO-Ej-iHd"; */
+"iiO-Ej-iHd.text" = "Is Done?";
+
+/* Class = "UIViewController"; title = "Undone Goal"; ObjectID = "kRf-Gi-h3g"; */
+"kRf-Gi-h3g.title" = "Undone Goal";
+
+/* Class = "UIViewController"; title = "Task"; ObjectID = "kmR-6c-LEk"; */
+"kmR-6c-LEk.title" = "Task";
+
+/* Class = "UITextView"; text = "Write the purpose, details, log, etc. of this goal. "; ObjectID = "kue-l1-lrS"; */
+"kue-l1-lrS.text" = "Write the purpose, details, log, etc. of this goal. ";
+
+/* Class = "UIViewController"; title = "Add Goal"; ObjectID = "n45-Sq-KFF"; */
+"n45-Sq-KFF.title" = "Add Goal";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "nT0-uU-F2k"; */
+"nT0-uU-F2k.normalTitle" = "Cancel";
+
+/* Class = "UITextView"; text = "Goal Description"; ObjectID = "pK1-nL-rSe"; */
+"pK1-nL-rSe.text" = "Goal Description";
+
+/* Class = "UIViewController"; title = "Goal Description"; ObjectID = "qS2-mk-zH3"; */
+"qS2-mk-zH3.title" = "Goal Description";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qvN-V5-Eto"; */
+"qvN-V5-Eto.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Go To Your Device's Settings"; ObjectID = "usr-gy-7B3"; */
+"usr-gy-7B3.normalTitle" = "Go To Your Device's Settings";
+
+/* Class = "UITextField"; placeholder = "Set a specific, concrete, & realistic Goal Title."; ObjectID = "w6L-8n-6g8"; */
+"w6L-8n-6g8.placeholder" = "Set a specific, concrete, & realistic Goal Title.";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "wEH-DP-RyJ"; */
+"wEH-DP-RyJ.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "wfW-Is-yca"; */
+"wfW-Is-yca.text" = "Detail";

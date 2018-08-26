@@ -23,7 +23,6 @@ class GoalTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         GoalTableViewController().tableView.rowHeight = UITableViewAutomaticDimension
         GoalTableViewController().tableView.estimatedRowHeight = 300
         

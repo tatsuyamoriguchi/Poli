@@ -15,12 +15,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
     // Declare a layer variable for animation
     var mask: CALayer?
 
-    // Image View for animation
-    //@IBOutlet weak var imageView: UIImageView!
-    
- 
-    
-    
     
     // MARK: - LOGIN VIEW
     // Variables
@@ -39,19 +33,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         
         // User login account already exists alert
         if (UserDefaults.standard.object(forKey: "userName") as? String) != nil {
+            let NSL_alertTitle_001 = NSLocalizedString("NSL_alertTitle_001", value: "User Already Exists", comment: "")
+            let NSL_alertMessage_001 = NSLocalizedString("NSL_alertMessage_001", value: "This App already has a user. To change your user info, login PoliPoli and go to Settings.", comment: " ")
             
-            AlertNotification().alert(title: "User Already Exists", message: "This App already has a user. To change your user info, login PoliPoli and go to Settings.", sender: self)
+            AlertNotification().alert(title: NSL_alertTitle_001, message: NSL_alertMessage_001, sender: self)
             
         } else if userNameTextField.text == "" || passwordTextField.text == "" {
             // no enough input entry alert
-            AlertNotification().alert(title: "Need More Information", message: "Fill both information: User Name and Password", sender: self)
+            let NSL_alertTitle_002 = NSLocalizedString("NSL_alertTitle_002", value: "Need More Information", comment: " ")
+            let NSL_alertMessage_002 = NSLocalizedString("NSL_alertMessage_002", value: "Fill both information: User Name and Password", comment: " ")
+            AlertNotification().alert(title: NSL_alertTitle_002, message: NSL_alertMessage_002, sender: self)
         } else {
             // Set a user login account
             UserDefaults.standard.set(userName, forKey: "userName")
             UserDefaults.standard.set(userPassword, forKey: "userPassword")
             userNameTextField.text = ""
             passwordTextField.text = ""
-            AlertNotification().alert(title: "User Account Created", message: "Please use the user name and password just created to login PoliPoli.", sender: self)
+            let NSL_alertTitle_003 = NSLocalizedString("NSL_NSL_alertTitle_003", value: "User Account Created", comment: " ")
+            let NSL_alertMessage_003 = NSLocalizedString("NSL_alertMessage_003", value: "Please use the user name and password just created to login PoliPoli.", comment: " ")
+            AlertNotification().alert(title: NSL_alertTitle_003, message: NSL_alertMessage_003, sender: self)
             
         }
     }
@@ -65,13 +65,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         let storedPassword = UserDefaults.standard.object(forKey: "userPassword") as? String
         
         if  (storedUserName == nil) {
-            AlertNotification().alert(title: "No Account", message: "No account is registered yet. Please create an account.", sender: self)
+            let NSL_alertTitle_004 = NSLocalizedString("NSL_alertTitle_004", value: "No Account", comment: " ")
+            let NSL_alertMessage_004 = NSLocalizedString("NSL_alertMessage_004", value: "No account is registered yet. Please create an account.", comment: " ")
+            AlertNotification().alert(title: NSL_alertTitle_004, message: NSL_alertMessage_004, sender: self)
         } else if userName == storedUserName && userPassword == storedPassword {
-            
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            UserDefaults.standard.synchronize()
             performSegue(withIdentifier: "loginSegue", sender: nil)
             
         } else {
-            AlertNotification().alert(title: "Authentification Failed", message: "Data you entered didn't match with user information.", sender: self)
+            let NSL_alertTitle_005 = NSLocalizedString("NSL_alertTitle_005", value: "Authentification Failed", comment: " ")
+            let NSL_alertMessage_005 = NSLocalizedString("NSL_alertMessage_005", value: "Data you entered didn't match with user information.", comment: " ")
+            AlertNotification().alert(title: NSL_alertTitle_005, message: NSL_alertMessage_005, sender: self)
         }
     }
     

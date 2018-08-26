@@ -30,17 +30,20 @@ class TaskViewController: UIViewController, UITextFieldDelegate {
 
         if segueName == "addTask" {
             isDoneSwitch.isOn = false
-            self.navigationItem.title = "Add Task"
+            let NSL_naviAdd = NSLocalizedString("NSL_naviAdd", value: "Add Task", comment: "")
+            self.navigationItem.title = NSL_naviAdd
         } else if segueName == "updateTask" {
             toDoTextField.text = selectedTask.toDo
             isImportantSwitch.isOn = selectedTask.isImportant
             taskDatePicker.date = selectedTask.date! as Date
             isDoneSwitch.isOn = selectedTask.isDone
-            self.navigationItem.title = "Update Task"
+            let NSL_naviUpdate = NSLocalizedString("NSL_naviUpdate", value: "Update Task", comment: "")
+            self.navigationItem.title = NSL_naviUpdate
 
         } else {
             print("Error: segueName wasn't detected.")
-            self.navigationItem.title = "Error: segueName wasn't detected"
+            let NSL_naviError = NSLocalizedString("NSL_naviError", value: "Error: segueName wasn't detected", comment: "")
+            self.navigationItem.title = NSL_naviError
 
         }
         
@@ -87,13 +90,15 @@ class TaskViewController: UIViewController, UITextFieldDelegate {
             do {
                 try context.save()
             }catch{
-                print("Saving Error: \(error)")
+                print("Saving Error: \(error.localizedDescription)")
             }
             
             navigationController!.popViewController(animated: true)
             
         } else if toDoTextField.text == "" {
-            AlertNotification().alert(title: "No Text Entry", message: "This entry is mandatory. Please type one in the text field.", sender: self)
+            let NSL_alertTitle_024 = NSLocalizedString("NSL_alertTitle_024", value: "No Text Entry", comment: "")
+            let NSL_alertMessage_024 = NSLocalizedString("NSL_alertMessage_024", value: "This entry is mandatory. Please type one in the text field.", comment: "")
+            AlertNotification().alert(title: NSL_alertTitle_024, message: NSL_alertMessage_024, sender: self)
         } else {
             print("Unable to detect toDoTextField.text value.")
         }
@@ -111,15 +116,6 @@ class TaskViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
