@@ -8,7 +8,7 @@ Version 1.0
 To-Do app with following features:
 </h2>
   <li>Simple animation and sound
-  <li>Password login
+  <li>Password login using UserDefaults (no it's not safe, I know. Just for sample app only)
   <li>Navigation Controller
   <li>TableView
   <li>Core Data with two entities and relationships
