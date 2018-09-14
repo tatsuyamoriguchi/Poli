@@ -1,7 +1,8 @@
 # PoliPoli
-
-Version 1.0 My first complete app</n>
-BFF app to help you to achieve goals</n>
+</br>
+Version 1.0 My first complete app
+</br>BFF app to help you to achieve goals
+</br>
 <h2>
 To-Do app with following features:
 </h2>
