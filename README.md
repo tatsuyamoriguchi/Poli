@@ -3,6 +3,7 @@
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app to help you to achieve goals
 <br>My first complete app
+<br><img src="PoliPoliIcon.png" alt="PoliPoli icon image">
 <br>
 <h2>To-Do app with following features:</h2>
   <li>Simple animation and sound
