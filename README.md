@@ -1,8 +1,9 @@
 # PoliPoli
 </br>
-Version 1.0 My first complete app
+Version 1.0
 </br>BFF app to help you to achieve goals
-</br>
+<br>My first complete app
+<br>
 <h2>
 To-Do app with following features:
 </h2>
@@ -11,5 +12,17 @@ To-Do app with following features:
   <li>Navigation Controller
   <li>TableView
   <li>Core Data with two entities and relationships
+  <li>Core Data predicate and sorting
   <li>Adding, Updating, and Deleting a goal
+  <li>Each goal progress bar with animation
+  <li>UIDatePicker
+  <li>UIImagePicker
+  <li>Calculate and display task percentage done for each goal
+  <li>Task list of a goal
+  <li>Adding, Updating, and Deleting a task
+  <li>Check and uncheck mark on a task TableView row with sound
+  <li>Display today's task list
+  <li>Updating user name and password
+  <li>Local daily notifications to remind you to check today's task list at preset time
+  <li>Auto layout
   
