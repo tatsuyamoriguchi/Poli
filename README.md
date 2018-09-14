@@ -1,12 +1,10 @@
 # PoliPoli
-</br>
-Version 1.0
-</br>BFF app to help you to achieve goals
+<br>Version 1.0
+<br>Copyright 2018 Tatsuya Moriguchi
+<br>BFF app to help you to achieve goals
 <br>My first complete app
 <br>
-<h2>
-To-Do app with following features:
-</h2>
+<h2>To-Do app with following features:</h2>
   <li>Simple animation and sound
   <li>Password login using UserDefaults (no it's not safe, I know. Just for sample app only)
   <li>Navigation Controller
@@ -25,4 +23,7 @@ To-Do app with following features:
   <li>Updating user name and password
   <li>Local daily notifications to remind you to check today's task list at preset time
   <li>Auto layout
+  <li>Pop up reward message and image when completing all tasks assigned to a goal
+  <li>Done/undone a goal
+  <li>Grayed out done goals in goal list
   
