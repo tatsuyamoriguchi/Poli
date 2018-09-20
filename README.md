@@ -27,4 +27,6 @@
   <li>Pop up reward message and image when completing all tasks assigned to a goal
   <li>Done/undone a goal
   <li>Grayed out done goals in goal list
+    <li>YouTube video: https://www.youtube.com/watch?v=4d1f2MOnbLk
+    
   
