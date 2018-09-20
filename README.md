@@ -2,7 +2,6 @@
 <br>Version 1.0
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app to help you to achieve goals
-<br>My first complete app
 <br>YouTube video: https://www.youtube.com/watch?v=4d1f2MOnbLk
 <br><img src="PoliPoliIcon.png" alt="PoliPoli icon image">
 <br>
