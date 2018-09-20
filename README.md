@@ -3,6 +3,7 @@
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app to help you to achieve goals
 <br>My first complete app
+<br>YouTube video: https://www.youtube.com/watch?v=4d1f2MOnbLk
 <br><img src="PoliPoliIcon.png" alt="PoliPoli icon image">
 <br>
 <h2>To-Do app with following features:</h2>
@@ -27,6 +28,5 @@
   <li>Pop up reward message and image when completing all tasks assigned to a goal
   <li>Done/undone a goal
   <li>Grayed out done goals in goal list
-    <li>YouTube video: https://www.youtube.com/watch?v=4d1f2MOnbLk
     
   
