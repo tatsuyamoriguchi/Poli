@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             print("Notificaiton Request was authorized.")
         }
-        
-        
+
         return true
     }
 

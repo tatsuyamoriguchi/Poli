@@ -12,9 +12,9 @@ import CoreData
 
 class TaskTableViewController: UITableViewController {
     
-    var context: NSManagedObjectContext!
-    var tasks = [Task]()
-    var selectedGoal: Goal?
+    //var context: NSManagedObjectContext!
+    //var tasks = [Task]()
+    //var selectedGoal: Goal?
     var selectedIndex: Int = 0
 
     
@@ -43,6 +43,7 @@ class TaskTableViewController: UITableViewController {
     }
 
 
+    /*
     func fetchData() {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -68,6 +69,36 @@ class TaskTableViewController: UITableViewController {
             print("selectedGoal was nil.")
         }
     }
+    */
+    
+    // Craig Spell's advise BEGIN
+    //When using coredata relationships are automatically resolved. There is no need to create a fetch and make a round trip to the database everytime you want to update an attribute or relationship.
+    //func updateTasks(){ //This method replaces your fetchData() method.
+    func fetchData() {
+        
+        let sortByDone = NSSortDescriptor(key: #keyPath(Task.isDone), ascending: true)
+        let sortByDate = NSSortDescriptor(key: #keyPath(Task.date), ascending: true)
+        let sortByToDo = NSSortDescriptor(key: #keyPath(Task.toDo), ascending: true)
+        
+        let sortDescriptors = [sortByDone, sortByDate, sortByToDo]
+        tasks = self.selectedGoal?.tasksAssigned?.sortedArray(using: sortDescriptors) as! [Task]
+    }
+    
+    var context : NSManagedObjectContext!
+    
+    var tasks = [Task]()
+    var selectedGoal: Goal? {
+        didSet{
+            self.context = selectedGoal?.managedObjectContext //Unless you have a specific reason to create a new context, you don't have to. every managed object carrys its context with it and is accessed by the managedObjectContext property on the object
+            //self.updateTasks() // here you can populate the tasks array as soon as the selectedGoal is set
+            self.fetchData()
+        }
+    }
+    
+    // Craig's Advise END
+    
+    
+    
     
     func goalDoneAlert() {
 

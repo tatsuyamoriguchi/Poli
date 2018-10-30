@@ -11,6 +11,10 @@ import UIKit
 class GoalDescriptionViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var goalDescriptionTextView: UITextView!
+    @IBOutlet weak var instructionLabel: UILabel!
+    
+    
+    
     var segueName: String?
     var goal: Goal!
     var goalTitle: String = ""
@@ -22,13 +26,15 @@ class GoalDescriptionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // To update goal, show the goal title
-  
+        let NSL_goalDescription = NSLocalizedString("NSL_goalDescription", value: "Write the purpose, details, log, etc. of this goal.", comment: "")
+        self.instructionLabel.text = NSL_goalDescription
+
         if segueName == "updateGoal" {
             goalDescriptionTextView.text = goal?.goalDescription
         } else {
-            let NSL_goalDescription = NSLocalizedString("NSL_goalDescription", value: "Write the purpose, details, log, etc. of this goal.", comment: "")
-            goalDescriptionTextView.text = NSL_goalDescription
+            
         }
+        
         let NSL_nextButton_02 = NSLocalizedString("NSL_nextButton_02", value: "Next", comment: "")
         let nextButton = UIBarButtonItem(title: NSL_nextButton_02, style: .done, target: self, action: #selector(nextGoal))
         self.navigationItem.rightBarButtonItem = nextButton
