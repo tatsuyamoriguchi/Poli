@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="71g-LD-oV9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="71g-LD-oV9">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -498,17 +498,6 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView contentMode="scaleAspectFit" image="PoliPoliIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-7j-Ud0">
-                                <rect key="frame" x="47" y="90" width="320" height="204"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="Bt2-Fg-oIg"/>
-                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" id="L46-q2-EF4"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DTT-wU-5AC" appends="YES" id="ngf-IO-sll"/>
-                                </connections>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-uU-F2k">
                                 <rect key="frame" x="0.0" y="686" width="414" height="30"/>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -522,6 +511,17 @@
                                     <action selector="cancelToRoot:" destination="dSK-z6-Wqj" eventType="touchUpInside" id="Jsj-Si-ZYJ"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleAspectFit" image="PoliPoliIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-7j-Ud0">
+                                <rect key="frame" x="57" y="114" width="300" height="300"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Bt2-Fg-oIg"/>
+                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" constant="-170.58823529411762" id="L46-q2-EF4"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DTT-wU-5AC" appends="YES" id="ngf-IO-sll"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -530,7 +530,7 @@
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="bq0-DP-yKU"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="gnt-RV-5bx"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="hag-bd-pcb"/>
-                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="20" id="mlC-eW-yWw"/>
+                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="44" id="mlC-eW-yWw"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="top" secondItem="lhY-DK-af4" secondAttribute="top" constant="20" id="uiM-SB-g8a"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="vn0-di-axK"/>
                         </constraints>
@@ -548,7 +548,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3436.875" y="904.22535211267609"/>
+            <point key="canvasLocation" x="3436.2318840579715" y="904.07608695652186"/>
         </scene>
         <!--Undone Goal-->
         <scene sceneID="Zv9-8Q-VHI">
