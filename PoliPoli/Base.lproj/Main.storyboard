@@ -512,11 +512,11 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleAspectFit" image="PoliPoliIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-7j-Ud0">
-                                <rect key="frame" x="57" y="114" width="300" height="300"/>
+                                <rect key="frame" x="123" y="118" width="169" height="136"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Bt2-Fg-oIg"/>
-                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" constant="-170.58823529411762" id="L46-q2-EF4"/>
+                                    <constraint firstAttribute="width" constant="169" id="Bt2-Fg-oIg"/>
+                                    <constraint firstAttribute="width" secondItem="ptq-7j-Ud0" secondAttribute="height" multiplier="80:51" constant="-44.333333333333343" id="L46-q2-EF4"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="DTT-wU-5AC" appends="YES" id="ngf-IO-sll"/>
@@ -530,7 +530,7 @@
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="bq0-DP-yKU"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="gnt-RV-5bx"/>
                             <constraint firstItem="nT0-uU-F2k" firstAttribute="leading" secondItem="lhY-DK-af4" secondAttribute="leading" id="hag-bd-pcb"/>
-                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="44" id="mlC-eW-yWw"/>
+                            <constraint firstItem="ptq-7j-Ud0" firstAttribute="top" secondItem="X0I-SN-cUg" secondAttribute="bottom" constant="48" id="mlC-eW-yWw"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="top" secondItem="lhY-DK-af4" secondAttribute="top" constant="20" id="uiM-SB-g8a"/>
                             <constraint firstItem="X0I-SN-cUg" firstAttribute="trailing" secondItem="lhY-DK-af4" secondAttribute="trailing" id="vn0-di-axK"/>
                         </constraints>
@@ -881,9 +881,10 @@
         <image name="PoliPoliIcon" width="216" height="204"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7KY-6u-1Vw"/>
+        <segue reference="8cS-7F-8KA"/>
+        <segue reference="743-aW-3gV"/>
         <segue reference="XHg-Fr-gtW"/>
-        <segue reference="dEI-z1-6Eh"/>
+        <segue reference="Uba-WO-OBv"/>
         <segue reference="wjN-o3-DDz"/>
         <segue reference="rgA-VP-5DN"/>
     </inferredMetricsTieBreakers>

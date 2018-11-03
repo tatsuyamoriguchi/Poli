@@ -123,7 +123,10 @@ class GoalTableViewController: UITableViewController {
         goalCell.goalRewardLabel.text = NS_Reward + (goal.goalReward)!
         
         if let goalRewardImageData = goal.goalRewardImage as Data? {
+            
             goalCell.goalRewardImageView.image = UIImage(data: goalRewardImageData)
+            
+            
         } else {
             goalCell.goalRewardImageView.image = #imageLiteral(resourceName: "PoliPoliIcon")
         }

@@ -127,11 +127,25 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    /*
+    func fixImageOrientation(_ image: UIImage)->UIImage {
+        UIGraphicsBeginImageContext(image.size)
+        image.draw(at: .zero)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? image
+    }
+    */
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-
-        goalRewardImageView.image = image
-
+       
+        //goalRewardImageView.image = image
+        
+        let orientationFixedImage = image?.fixOrientation()
+        goalRewardImageView.image = orientationFixedImage
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -153,10 +167,22 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    
-  
 
 }
 
+extension UIImage {
+    func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImageOrientation.up {
+            return self
+        }
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        if let normalizedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return normalizedImage
+        } else {
+            return self
+        }
+    }
+}
 
