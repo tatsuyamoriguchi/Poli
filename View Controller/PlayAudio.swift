@@ -20,7 +20,9 @@ class PlayAudio {
         if let asset = NSDataAsset(name: fileName) {
             
             do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                /*
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: <#AVAudioSession.Mode#>)
+ */
                 try AVAudioSession.sharedInstance().setActive(true)
                 
                 //player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
@@ -33,4 +35,9 @@ class PlayAudio {
         }
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

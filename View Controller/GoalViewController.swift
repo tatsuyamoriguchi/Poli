@@ -51,7 +51,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         goal.goalDueDate = goalDueDatePicker.date as NSDate
         
         goal.goalReward = goalRewardTextField.text
-        goal.goalRewardImage = UIImagePNGRepresentation(goalRewardImageView.image!) as NSData?
+        goal.goalRewardImage = goalRewardImageView.image!.pngData() as NSData?
         goal.goalDone = false
         //task.goalAssigned = goal
         //goal.addToTasksAssigned(task)

@@ -116,7 +116,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         keyFrameAnimation.beginTime = CACurrentMediaTime() + 1
         
         keyFrameAnimation.duration = 2
-        keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
+        keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut), CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)]
         
         let initialBounds = NSValue(cgRect: mask!.bounds)
         let secondBounds = NSValue(cgRect: CGRect(x: 0, y: 0, width: 60, height: 60))

@@ -68,7 +68,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             goal.goalDescription = goalDescription
             goal.goalDueDate = goalDueDate! as NSDate
             goal.goalReward = goalRewardTextField.text // goalReward
-            goal.goalRewardImage =  UIImagePNGRepresentation(goalRewardImageView.image!) as NSData?
+            goal.goalRewardImage =  goalRewardImageView.image!.pngData() as NSData?
             goal.goalDone = false
             
         } else {
@@ -77,7 +77,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             goal.goalDescription = goalDescription
             goal.goalDueDate = goalDueDate! as NSDate
             goal.goalReward = goalRewardTextField.text // goalReward
-            goal.goalRewardImage =  UIImagePNGRepresentation(goalRewardImageView.image!) as NSData?
+            goal.goalRewardImage =  goalRewardImageView.image!.pngData() as NSData?
             goal.goalDone = false
         }
        
@@ -138,8 +138,11 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
     */
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
        
         //goalRewardImageView.image = image
         
@@ -172,7 +175,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
 
 extension UIImage {
     func fixOrientation() -> UIImage {
-        if self.imageOrientation == UIImageOrientation.up {
+        if self.imageOrientation == UIImage.Orientation.up {
             return self
         }
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
@@ -186,3 +189,13 @@ extension UIImage {
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

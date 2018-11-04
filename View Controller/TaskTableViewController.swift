@@ -135,10 +135,10 @@ class TaskTableViewController: UITableViewController {
         taskCell.detailTextLabel?.text = dateString
         
         if task.isDone == true {
-            taskCell.accessoryType = UITableViewCellAccessoryType.checkmark
+            taskCell.accessoryType = UITableViewCell.AccessoryType.checkmark
             taskCell.detailTextLabel?.textColor = .black
         } else  {
-            taskCell.accessoryType = UITableViewCellAccessoryType.none
+            taskCell.accessoryType = UITableViewCell.AccessoryType.none
             
             let today = Date()
             let evaluate = NSCalendar.current.compare(task.date! as Date, to: today, toGranularity: .day)

@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func goToSettingsPressed(_ sender: UIButton) {
         
-        if let url = URL(string: UIApplicationOpenSettingsURLString) {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(url)
         }
     }
@@ -151,7 +151,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         content.title = NSL_contentTitle
         content.subtitle = NSL_contentSubtitle
         content.body = NSL_contentBody
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.categoryIdentifier = "today"
 
         let dateComponent = notificationTimePicker.calendar.dateComponents([.hour, .minute], from: (notificationTimePicker.date))
