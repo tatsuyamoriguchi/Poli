@@ -35,7 +35,15 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
         // To update goal, show the goal title
         if segueName == "updateGoal" {
             goalRewardTextField.text = goal.goalReward
-            goalRewardImageView.image = UIImage(data: goal.goalRewardImage! as Data)
+            
+            if goal.goalRewardImage == nil {
+               //if no image exists 'cause perhaps it was deleted from Photos, use PoliPoli default image
+                goalRewardImageView.image = #imageLiteral(resourceName: "PoliPoliIcon.png")
+                
+            } else {
+            
+                goalRewardImageView.image = UIImage(data: goal.goalRewardImage! as Data)
+            }
         }
         
         let nextButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(nextGoal))
@@ -127,25 +135,16 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    /*
-    func fixImageOrientation(_ image: UIImage)->UIImage {
-        UIGraphicsBeginImageContext(image.size)
-        image.draw(at: .zero)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage ?? image
-    }
-    */
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
         let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
        
         //goalRewardImageView.image = image
-        
+        //To avoid captured photo's orientation issue, use fixOrientation()
         let orientationFixedImage = image?.fixOrientation()
         goalRewardImageView.image = orientationFixedImage
         
