@@ -32,6 +32,7 @@
 		8C6B80B820FD749C0055D505 /* PoliPoli.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B80B620FD749C0055D505 /* PoliPoli.xcdatamodeld */; };
 		8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6B80B920FD749E0055D505 /* Assets.xcassets */; };
 		8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6B80BB20FD749E0055D505 /* LaunchScreen.storyboard */; };
+		8C71255221928EB100E42E4C /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71255121928EB100E42E4C /* KeychainPasswordItem.swift */; };
 		8C807A3D21267F890024D5EB /* TodaysTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */; };
 		8C98C31D21191B1F00FAFADE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C98C31C21191B1F00FAFADE /* AVFoundation.framework */; };
 		8CB3A03B2104097F00774DE6 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */; };
@@ -70,6 +71,7 @@
 		8C6B80B920FD749E0055D505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C6B80BC20FD749E0055D505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C6B80BE20FD749E0055D505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C71255121928EB100E42E4C /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		8C7D95F521305A23005F08D2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		8C7D95F621305A23005F08D2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTasksTableViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		8C004A7320FEB3E300960B3A /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8C71255121928EB100E42E4C /* KeychainPasswordItem.swift */,
 				8C27360C21169F1600A482B3 /* LoginViewController.swift */,
 				8C27360E2116CB2200A482B3 /* SettingsViewController.swift */,
 				8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */,
@@ -264,6 +267,7 @@
 				8C4E7A00210F826B00483CCE /* Task+CoreDataClass.swift in Sources */,
 				8C27360F2116CB2200A482B3 /* SettingsViewController.swift in Sources */,
 				8C4E79FF210F826B00483CCE /* Goal+CoreDataProperties.swift in Sources */,
+				8C71255221928EB100E42E4C /* KeychainPasswordItem.swift in Sources */,
 				8CE809B9212A31A20076756C /* LocalNotificationDelegate.swift in Sources */,
 				8C27360D21169F1600A482B3 /* LoginViewController.swift in Sources */,
 				8C4E7A01210F826B00483CCE /* Task+CoreDataProperties.swift in Sources */,

@@ -9,8 +9,22 @@
 import UIKit
 import QuartzCore
 
+// Keychain Configuration
+struct KeychainConfiguration {
+    static let serviceName = "PoliPoli"
+    static let accessGroup: String? = nil
+}
+
 class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDelegate, CALayerDelegate {
 
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var createLogin: UIButton!
+    @IBOutlet weak var createInfoLabel: UILabel!
+    
+    var passwordItems: [KeychainPasswordItem] = []
+    
+    
     // MARL: - ANIMATION
     // Declare a layer variable for animation
     var mask: CALayer?
@@ -44,34 +58,58 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
             let NSL_alertMessage_002 = NSLocalizedString("NSL_alertMessage_002", value: "Fill both information: User Name and Password", comment: " ")
             AlertNotification().alert(title: NSL_alertTitle_002, message: NSL_alertMessage_002, sender: self)
         } else {
+            
+     
+            // Create a KeychainPasswordItem with the service Name, newAccountName(username) and accessGroup. Using Swift's error handling, you try to save the password. The catch is there if something goes wrong.
+            do {
+                // This is a new account, create a new keychain item with the account name.
+                let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: userName, accessGroup: KeychainConfiguration.accessGroup)
+                
+                // Save the password for the new item.
+                try passwordItem.savePassword(userPassword)
+                
+            }catch {
+                fatalError("Error updating keychain = \(error)")
+            }
+            
+            
             // Set a user login account
             UserDefaults.standard.set(userName, forKey: "userName")
-            UserDefaults.standard.set(userPassword, forKey: "userPassword")
+            //UserDefaults.standard.set(userPassword, forKey: "userPassword")
+            
             userNameTextField.text = ""
             passwordTextField.text = ""
+            
             let NSL_alertTitle_003 = NSLocalizedString("NSL_NSL_alertTitle_003", value: "User Account Created", comment: " ")
             let NSL_alertMessage_003 = NSLocalizedString("NSL_alertMessage_003", value: "Please use the user name and password just created to login PoliPoli.", comment: " ")
             AlertNotification().alert(title: NSL_alertTitle_003, message: NSL_alertMessage_003, sender: self)
             
         }
     }
-    
+ 
+  
     @IBAction func loginPressed(_ sender: UIButton) {
        
         userName = userNameTextField.text!
         userPassword = passwordTextField.text!
         
         let storedUserName = UserDefaults.standard.object(forKey: "userName") as? String
-        let storedPassword = UserDefaults.standard.object(forKey: "userPassword") as? String
+        //let storedPassword = UserDefaults.standard.object(forKey: "userPassword") as? String
         
         if  (storedUserName == nil) {
             let NSL_alertTitle_004 = NSLocalizedString("NSL_alertTitle_004", value: "No Account", comment: " ")
             let NSL_alertMessage_004 = NSLocalizedString("NSL_alertMessage_004", value: "No account is registered yet. Please create an account.", comment: " ")
             AlertNotification().alert(title: NSL_alertTitle_004, message: NSL_alertMessage_004, sender: self)
-        } else if userName == storedUserName && userPassword == storedPassword {
+        }
+        //else if userName == storedUserName && userPassword == storedPassword {
+            
+            // If the user is logging in, call checkLogin to verify the user-provided credentials; if they match then you dismiss the login view.
+            else if checkLogin(username: userName, password: userPassword) {
+            
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
             UserDefaults.standard.synchronize()
-            performSegue(withIdentifier: "loginSegue", sender: nil)
+            performSegue(withIdentifier: "loginSegue", sender: self)
+
             
         } else {
             let NSL_alertTitle_005 = NSLocalizedString("NSL_alertTitle_005", value: "Authentification Failed", comment: " ")
@@ -80,6 +118,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         }
     }
     
+    
+    func checkLogin(username: String, password: String) -> Bool {
+        
+        guard username == UserDefaults.standard.value(forKey: "userName") as? String else {
+            return false
+        }
+        do {
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: username, accessGroup: KeychainConfiguration.accessGroup)
+            let keychainPassword = try passwordItem.readPassword()
+            return password == keychainPassword
+   
+        } catch {
+            fatalError("Error reading passwod from keychain - \(error)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

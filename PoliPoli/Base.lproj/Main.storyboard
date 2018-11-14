@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="71g-LD-oV9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="71g-LD-oV9">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -512,7 +510,7 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleAspectFit" image="PoliPoliIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-7j-Ud0">
-                                <rect key="frame" x="123" y="118" width="169" height="136"/>
+                                <rect key="frame" x="122.66666666666669" y="118" width="169" height="136"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="Bt2-Fg-oIg"/>
@@ -569,7 +567,7 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfx-gS-GAA">
-                                <rect key="frame" x="182.33333333333334" y="181" width="51" height="31"/>
+                                <rect key="frame" x="182.66666666666666" y="181" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Off Switch to Undone this Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHv-qQ-qLs">
                                 <rect key="frame" x="92.666666666666686" y="131" width="229" height="20"/>
@@ -797,7 +795,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="71g-LD-oV9" eventType="touchUpInside" id="93f-QI-xnn"/>
+                                    <action selector="loginPressed:" destination="71g-LD-oV9" eventType="touchUpInside" id="G7b-EL-4wk"/>
                                     <segue destination="cdz-qG-ggx" kind="show" identifier="loginSegue" id="kgJ-sz-F3p"/>
                                 </connections>
                             </button>
@@ -809,13 +807,19 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerPressed:" destination="71g-LD-oV9" eventType="touchUpInside" id="Jde-RU-34r"/>
+                                    <action selector="registerPressed:" destination="71g-LD-oV9" eventType="touchUpInside" id="uMC-HQ-ONY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BFF App to Help You to Achieve Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a0-aQ-bA3">
                                 <rect key="frame" x="0.0" y="122.66666666666669" width="414" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start by registering a user name and password." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoM-Hf-xoj">
+                                <rect key="frame" x="0.0" y="322.66666666666669" width="414" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -826,6 +830,7 @@
                             <constraint firstItem="8am-Ip-PY2" firstAttribute="top" secondItem="WPP-KT-HvA" secondAttribute="bottom" constant="8" id="44L-kz-aJX"/>
                             <constraint firstItem="feu-UW-y72" firstAttribute="trailing" secondItem="34F-2u-SmS" secondAttribute="trailing" id="79Z-ah-wNh"/>
                             <constraint firstItem="cqk-Cx-Mfp" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" id="Eho-Xz-kvW"/>
+                            <constraint firstItem="MoM-Hf-xoj" firstAttribute="trailing" secondItem="34F-2u-SmS" secondAttribute="trailing" id="INu-NK-NdL"/>
                             <constraint firstItem="6a0-aQ-bA3" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" id="JMk-VX-sLv"/>
                             <constraint firstItem="8am-Ip-PY2" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" id="O27-pe-KN4"/>
                             <constraint firstItem="81V-2E-PAo" firstAttribute="top" secondItem="34F-2u-SmS" secondAttribute="top" constant="8" id="PqG-bF-Hka"/>
@@ -837,6 +842,8 @@
                             <constraint firstItem="6a0-aQ-bA3" firstAttribute="top" secondItem="81V-2E-PAo" secondAttribute="bottom" id="aLS-gC-0kS"/>
                             <constraint firstItem="feu-UW-y72" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" id="aR0-wa-Xjl"/>
                             <constraint firstItem="hA6-bh-bNK" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" constant="63" id="bVb-BH-de3"/>
+                            <constraint firstItem="MoM-Hf-xoj" firstAttribute="leading" secondItem="34F-2u-SmS" secondAttribute="leading" id="c6g-lt-1ko"/>
+                            <constraint firstItem="MoM-Hf-xoj" firstAttribute="top" secondItem="feu-UW-y72" secondAttribute="bottom" id="cn8-rc-s4z"/>
                             <constraint firstItem="cqk-Cx-Mfp" firstAttribute="trailing" secondItem="34F-2u-SmS" secondAttribute="trailing" id="cwp-9R-9Pk"/>
                             <constraint firstItem="feu-UW-y72" firstAttribute="top" secondItem="cqk-Cx-Mfp" secondAttribute="bottom" constant="8" id="gNP-RV-QVp"/>
                             <constraint firstItem="WPP-KT-HvA" firstAttribute="top" secondItem="6a0-aQ-bA3" secondAttribute="bottom" constant="20" id="kP7-8w-B0J"/>
@@ -846,13 +853,16 @@
                         <viewLayoutGuide key="safeArea" id="34F-2u-SmS"/>
                     </view>
                     <connections>
+                        <outlet property="createInfoLabel" destination="MoM-Hf-xoj" id="eGm-Lt-ChU"/>
+                        <outlet property="createLogin" destination="cqk-Cx-Mfp" id="biJ-m1-2PN"/>
+                        <outlet property="loginButton" destination="cqk-Cx-Mfp" id="ReW-5a-76g"/>
                         <outlet property="passwordTextField" destination="8am-Ip-PY2" id="PXf-db-RTI"/>
                         <outlet property="userNameTextField" destination="WPP-KT-HvA" id="MN9-1a-U2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjL-nz-8PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1413.75" y="71.83098591549296"/>
+            <point key="canvasLocation" x="-1414.4927536231885" y="71.739130434782609"/>
         </scene>
         <!--rootNavigator-->
         <scene sceneID="pJB-dt-WVu">
@@ -881,10 +891,9 @@
         <image name="PoliPoliIcon" width="216" height="204"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8cS-7F-8KA"/>
-        <segue reference="743-aW-3gV"/>
+        <segue reference="7KY-6u-1Vw"/>
         <segue reference="XHg-Fr-gtW"/>
-        <segue reference="Uba-WO-OBv"/>
+        <segue reference="dEI-z1-6Eh"/>
         <segue reference="wjN-o3-DDz"/>
         <segue reference="rgA-VP-5DN"/>
     </inferredMetricsTieBreakers>
