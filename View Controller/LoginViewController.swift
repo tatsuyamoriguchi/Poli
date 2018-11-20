@@ -124,9 +124,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
     }
     
     @IBAction func touchIDLoginAction() {
+        /*
+         touchMe.authenticateUser() { [weak self] in
+         self?.performSegue(withIdentifier: "loginSegue", sender: self)
+         }
+         */
         
+        // 1 Update the trailing closure to accept an optional message.
+        // If biometric ID works, no message.
+        touchMe.authenticateUser() { [weak self] message in
+            // 2 Unwrap the message and display it with an alert.
+            if let message = message {
+                // if the completion is not nil show an alert
+                let alertView = UIAlertController(title: "Error",
+                                                  message: message,
+                                                  preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Darn!", style: .default)
+                alertView.addAction(okAction)
+                self?.present(alertView, animated: true)
+            } else {
+                // 3 if no message, dismiss the Login view.
+                self?.performSegue(withIdentifier: "loginSegue", sender: self)
+            }
+        }
         
     }
+    
     
     
     
@@ -175,6 +198,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let touchBool = touchMe.canEvaluatePolicy()
+        if touchBool {
+            touchIDLoginAction()
+        }
+    }
+    
 
     // Create a layer
     func maskView() {
