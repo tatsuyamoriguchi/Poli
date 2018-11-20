@@ -21,11 +21,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
     
     @IBOutlet weak var createLogin: UIButton!
     @IBOutlet weak var createInfoLabel: UILabel!
+    @IBOutlet weak var touchIDButton: UIButton!
     
     var passwordItems: [KeychainPasswordItem] = []
     
     
-    // MARL: - ANIMATION
+    // MARK: - ANIMATION
     // Declare a layer variable for animation
     var mask: CALayer?
 
@@ -35,6 +36,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
     var userName: String = ""
     var userPassword: String = ""
     var isOpening: Bool = true
+    
+    // Create a reference to BiometricIDAuth
+    let touchMe = BiometricIDAuth()
+    
     
     // Properties
     @IBOutlet weak var userNameTextField: UITextField!
@@ -118,6 +123,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         }
     }
     
+    @IBAction func touchIDLoginAction() {
+        
+        
+    }
+    
+    
+    
     
     func checkLogin(username: String, password: String) -> Bool {
         
@@ -149,6 +161,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         userNameTextField.delegate = self
         passwordTextField.delegate = self
 
+        // Find whether the device can implement biometric authentication
+        // If so, show the Touch ID button.
+        touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
+        
+        // Fix the button's icon
+        switch touchMe.biometricType() {
+        case .faceID:
+            touchIDButton.setImage(UIImage(named: "FaceIcon"),  for: .normal)
+        default:
+            touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
+        }
+        
     }
 
 

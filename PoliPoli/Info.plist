@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Please click OK to take a photo.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We use FaceID to unlock the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please click OK to choose a photo.</string>
 	<key>UILaunchStoryboardName</key>

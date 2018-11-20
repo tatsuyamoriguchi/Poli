@@ -817,11 +817,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start by registering a user name and password." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoM-Hf-xoj">
-                                <rect key="frame" x="0.0" y="322.66666666666669" width="414" height="20.333333333333314"/>
+                                <rect key="frame" x="0.0" y="322.66666666666669" width="414" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rE4-8M-TX5">
+                                <rect key="frame" x="174" y="367.66666666666669" width="66" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="0Uz-OI-tDl"/>
+                                    <constraint firstAttribute="height" constant="67" id="yUG-go-fpz"/>
+                                </constraints>
+                                <state key="normal" image="Touch-icon-lg"/>
+                                <connections>
+                                    <action selector="touchIDLoginAction" destination="71g-LD-oV9" eventType="touchUpInside" id="mmp-bw-wR3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -847,8 +858,10 @@
                             <constraint firstItem="cqk-Cx-Mfp" firstAttribute="trailing" secondItem="34F-2u-SmS" secondAttribute="trailing" id="cwp-9R-9Pk"/>
                             <constraint firstItem="feu-UW-y72" firstAttribute="top" secondItem="cqk-Cx-Mfp" secondAttribute="bottom" constant="8" id="gNP-RV-QVp"/>
                             <constraint firstItem="WPP-KT-HvA" firstAttribute="top" secondItem="6a0-aQ-bA3" secondAttribute="bottom" constant="20" id="kP7-8w-B0J"/>
+                            <constraint firstItem="rE4-8M-TX5" firstAttribute="centerX" secondItem="gfz-RO-9QD" secondAttribute="centerX" id="kyI-xB-2SH"/>
                             <constraint firstItem="WPP-KT-HvA" firstAttribute="trailing" secondItem="34F-2u-SmS" secondAttribute="trailing" id="ux5-qZ-HEB"/>
                             <constraint firstItem="34F-2u-SmS" firstAttribute="bottom" secondItem="hA6-bh-bNK" secondAttribute="bottom" constant="14" id="xd8-wy-suO"/>
+                            <constraint firstItem="rE4-8M-TX5" firstAttribute="top" secondItem="MoM-Hf-xoj" secondAttribute="bottom" constant="25" id="zdU-zN-iEm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="34F-2u-SmS"/>
                     </view>
@@ -857,6 +870,7 @@
                         <outlet property="createLogin" destination="cqk-Cx-Mfp" id="biJ-m1-2PN"/>
                         <outlet property="loginButton" destination="cqk-Cx-Mfp" id="ReW-5a-76g"/>
                         <outlet property="passwordTextField" destination="8am-Ip-PY2" id="PXf-db-RTI"/>
+                        <outlet property="touchIDButton" destination="rE4-8M-TX5" id="zIQ-FL-d6s"/>
                         <outlet property="userNameTextField" destination="WPP-KT-HvA" id="MN9-1a-U2d"/>
                     </connections>
                 </viewController>
@@ -889,6 +903,7 @@
     </scenes>
     <resources>
         <image name="PoliPoliIcon" width="216" height="204"/>
+        <image name="Touch-icon-lg" width="138" height="137"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7KY-6u-1Vw"/>
