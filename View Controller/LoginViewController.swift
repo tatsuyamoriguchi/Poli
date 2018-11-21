@@ -57,13 +57,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
             
             AlertNotification().alert(title: NSL_alertTitle_001, message: NSL_alertMessage_001, sender: self)
             
+            // If any of user info is missing, display an alert.
         } else if userNameTextField.text == "" || passwordTextField.text == "" {
             // no enough input entry alert
             let NSL_alertTitle_002 = NSLocalizedString("NSL_alertTitle_002", value: "Need More Information", comment: " ")
             let NSL_alertMessage_002 = NSLocalizedString("NSL_alertMessage_002", value: "Fill both information: User Name and Password", comment: " ")
             AlertNotification().alert(title: NSL_alertTitle_002, message: NSL_alertMessage_002, sender: self)
+
+
         } else {
-            
      
             // Create a KeychainPasswordItem with the service Name, newAccountName(username) and accessGroup. Using Swift's error handling, you try to save the password. The catch is there if something goes wrong.
             do {
@@ -134,7 +136,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         // If biometric ID works, no message.
         touchMe.authenticateUser() { [weak self] message in
             // 2 Unwrap the message and display it with an alert.
-            if let message = message {
+            if (UserDefaults.standard.object(forKey: "userName") as? String) == nil {
+                AlertNotification().alert(title: "Error", message: "No User Name found", sender: self!)
+            
+        } else if let message = message {
                 // if the completion is not nil show an alert
                 let alertView = UIAlertController(title: "Error",
                                                   message: message,
@@ -143,6 +148,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
                 alertView.addAction(okAction)
                 self?.present(alertView, animated: true)
             } else {
+           
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.synchronize()
+                
                 // 3 if no message, dismiss the Login view.
                 self?.performSegue(withIdentifier: "loginSegue", sender: self)
             }

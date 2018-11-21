@@ -123,7 +123,21 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         } else {
             // Set a user login account
             UserDefaults.standard.set(userName, forKey: "userName")
-            UserDefaults.standard.set(userPassword, forKey: "userPassword")
+            //UserDefaults.standard.set(userPassword, forKey: "userPassword")
+            
+            // Create a KeychainPasswordItem with the service Name, newAccountName(username) and accessGroup. Using Swift's error handling, you try to save the password. The catch is there if something goes wrong.
+            do {
+                // This is a new account, create a new keychain item with the account name.
+                let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: userName, accessGroup: KeychainConfiguration.accessGroup)
+                
+                // Save the password for the new item.
+                try passwordItem.savePassword(userPassword)
+                
+            }catch {
+                fatalError("Error updating keychain = \(error)")
+            }
+            
+            
             userNameTextField.text = ""
             passwordTextField.text = ""
             let NSL_alertTitle_009 = NSLocalizedString("NSL_alertTitle_009", value: "User Information Updated", comment: " ")
