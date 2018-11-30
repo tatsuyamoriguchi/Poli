@@ -15,8 +15,39 @@ class TodaysTasksTableViewController: UITableViewController {
     var tasks = [Task]()
     var selectedGoal: Goal?
     var userName: String = ""
+
+
     
-    
+    @objc func addTapped() {
+     
+        var text = "I will complete the following task(s) today! (Posted from \(userName)'s PoliPoli) :"
+        let image = UIImage(named: "PoliPoliIconLarge")
+        //let url = "http://www.beckos.com/"
+        
+        var previousGoalTitle: String = ""
+        
+        for task in tasks
+        {
+            let goalTitle = task.goalAssigned?.goalTitle
+            let toDo = task.toDo
+            
+            if goalTitle != previousGoalTitle {
+                text.append("\n\nGoal Title: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
+                previousGoalTitle = goalTitle!
+            } else {
+                text.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
+            }
+            
+        }
+        
+        //let activityItems = [text, image ?? "PoliPoliIconSmall2", url] as [Any]
+        let activityItems = [text, image ?? "PoliPoliIconLarge"] as [Any]
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +62,10 @@ class TodaysTasksTableViewController: UITableViewController {
             self.navigationItem.prompt = "Login Error"
         }
         
+       
         let NSL_naviToday = NSLocalizedString("NSL_naviToday", value: "Today's Tasks To-Do", comment: "")
         self.navigationItem.title = NSL_naviToday
-        
+ 
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +80,32 @@ class TodaysTasksTableViewController: UITableViewController {
         
         // Reload the table view
         tableView.reloadData()
+        
+        // Display a share button, if any tasks item. If no tasks, segue back to root view
+        if tasks.count > 0 {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
+            
+        } else {
+            let noTodaysTaskAlert = UIAlertController(title: "Aelrt", message: "No Today's Task now.", preferredStyle: .alert)
+            self.present(noTodaysTaskAlert, animated: true, completion: nil)
+            
+            // Hide rightBarButtonItem
+            navigationItem.rightBarButtonItem = nil
+            
+            // Display congratAlert view for x seconds
+            let when = DispatchTime.now() + 2
+            DispatchQueue.main.asyncAfter(deadline: when, execute: {
+                noTodaysTaskAlert.dismiss(animated: true, completion: nil)
+                
+            })
+            
+            //navigationController!.popToRootViewController(animated: true)
+            
+        }
     }
     
+
+
     
     func fetchData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

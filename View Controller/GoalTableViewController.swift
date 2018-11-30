@@ -214,7 +214,7 @@ class GoalTableViewController: UITableViewController {
                 self.present(congratAlert, animated: true, completion: nil)
                 
                 // Display congratAlert view for x seconds
-                let when = DispatchTime.now() + 3
+                let when = DispatchTime.now() + 5
                 DispatchQueue.main.asyncAfter(deadline: when, execute: {
                     congratAlert.dismiss(animated: true, completion: nil)
                     
