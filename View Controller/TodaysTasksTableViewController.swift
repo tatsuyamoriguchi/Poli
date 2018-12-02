@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class TodaysTasksTableViewController: UITableViewController {
     
     var context: NSManagedObjectContext!
@@ -17,17 +18,16 @@ class TodaysTasksTableViewController: UITableViewController {
     var userName: String = ""
 
 
-    
     @objc func addTapped() {
-     
-        var text = "I will complete the following task(s) today! (Posted from \(userName)'s PoliPoli) :"
-        let image = UIImage(named: "PoliPoliIconLarge")
-        //let url = "http://www.beckos.com/"
+
+        var image: UIImage
+        var text: String
+        image = UIImage(named: "PoliPoliIconLarge")!
+        text = "I will complete the following task(s) today :"
         
         var previousGoalTitle: String = ""
-        
-        for task in tasks
-        {
+        for task in tasks {
+            
             let goalTitle = task.goalAssigned?.goalTitle
             let toDo = task.toDo
             
@@ -37,14 +37,16 @@ class TodaysTasksTableViewController: UITableViewController {
             } else {
                 text.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
             }
-            
         }
+  
+        let activityItems = [text, image] as [Any]
         
-        //let activityItems = [text, image ?? "PoliPoliIconSmall2", url] as [Any]
-        let activityItems = [text, image ?? "PoliPoliIconLarge"] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
+        
+        //activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+        
         
     }
 
@@ -211,6 +213,5 @@ class TodaysTasksTableViewController: UITableViewController {
             }
         }
     }
-
-
 }
+
