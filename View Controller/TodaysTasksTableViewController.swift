@@ -22,11 +22,11 @@ class TodaysTasksTableViewController: UITableViewController {
 
         var image: UIImage
         var message: String
-        //var url: URL
+        var url: URL
    
-        image = UIImage(named: "PoliPoliIconLarge")!
+        image = UIImage(named: "PoliPoliIcon")!
         message = "I will complete the following task(s) today :"
-        //url = URL(string: "http://www.beckos.com")!
+        url = URL(string: "http://beckos.com/?p=1029")!
 
 
         var previousGoalTitle: String = ""
@@ -43,26 +43,26 @@ class TodaysTasksTableViewController: UITableViewController {
             }
         }
 
-        let activityItems = [message, image] as [Any]
+        //let activityItems = [message, url] as [Any]
         // Not using UIActivityItemSource
         // If with url, Facebook, Facebook Messenger and LinkedIn recognize url only, not message or image
         // Mail, Message, Reminders, NotesTwitter, Messenger, LINE, Snapchat, Facebook(url only), LinkedIn(url only)
         // With only messae and image, LinkedIn still returns an error, but message was posted successfully.
-        
-        
         //let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
+        
+        let activityItems = [ActivityItemSource(message: message), ActivityItemSourceImage(image: image), ActivityItemSourceURL(url: url)]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-            
+        
         activityVC.excludedActivityTypes = [
             UIActivity.ActivityType.assignToContact,
             UIActivity.ActivityType.print,
             UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.markupAsPDF,
             UIActivity.ActivityType.saveToCameraRoll,
             UIActivity.ActivityType.openInIBooks,
             //UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"),
             //UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"),
         ]
-        
         
         self.present(activityVC, animated: true, completion: nil)
         
@@ -237,19 +237,12 @@ class TodaysTasksTableViewController: UITableViewController {
 }
 
 
- // Can't figure out how to pass multiple values from function with UIActivityItemSource
- // changing return value to an array, UIActivityItemSource won't recognize that funciton
-/*
 class ActivityItemSource: NSObject, UIActivityItemSource {
-
-    var message: String!
-    var image: UIImage!
-    var url: URL!
     
-    init(message: String, image: UIImage, url: URL) {
+    var message: String!
+    
+    init(message: String) {
         self.message = message
-        self.image = image
-        self.url = url
     }
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
@@ -260,10 +253,10 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-    
+        
         switch activityType {
         case UIActivity.ActivityType.postToFacebook:
-            return image
+            return nil
         case UIActivity.ActivityType.postToTwitter:
             return message
         case UIActivity.ActivityType.mail:
@@ -275,28 +268,133 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
         case UIActivity.ActivityType.message:
             return message
         case UIActivity.ActivityType.postToFlickr:
-            return image
+            return message
         case UIActivity.ActivityType.postToTencentWeibo:
             return message
         case UIActivity.ActivityType.postToVimeo:
-            return image
+            return message
         case UIActivity.ActivityType.print:
             return message
         case UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"):
             return message
         case UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"):
             return message
- 
+        case UIActivity.ActivityType(rawValue: "com.burbn.instagram.shareextension"):
+            return nil
+        case UIActivity.ActivityType(rawValue: "jp.naver.line.Share"):
+            return message
+            
         default:
-           return message
+            return nil
+        }
+    }
+}
 
-            // To post image to Instagram, return image
-            // message: Mail, Message, Notes, Twitter, Messenger, LINE, Facebook, LinkedIn(althugh showing an error)
- 
-         }
+
+class ActivityItemSourceImage: NSObject, UIActivityItemSource {
+    
+    var image: UIImage!
+    
+    
+    init(image: UIImage) {
+        //self.image = image
+        self.image = UIImage(named: "PoliPoliIcon")!
 
     }
- }
- */
+    
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return image
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        
+        
+        switch activityType {
+        case UIActivity.ActivityType.postToFacebook:
+            return image
+        case UIActivity.ActivityType.postToTwitter:
+            return nil
+        case UIActivity.ActivityType.mail:
+            return image
+        case UIActivity.ActivityType.copyToPasteboard:
+            return image
+        case UIActivity.ActivityType.markupAsPDF:
+            return image
+        case UIActivity.ActivityType.message:
+            return image
+        case UIActivity.ActivityType.postToFlickr:
+            return image
+        case UIActivity.ActivityType.postToTencentWeibo:
+            return image
+        case UIActivity.ActivityType.postToVimeo:
+            return image
+        case UIActivity.ActivityType.print:
+            return image
+        case UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"):
+            return nil
+        case UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"):
+            return nil
+        case UIActivity.ActivityType(rawValue: "com.burbn.instagram.shareextension"):
+            return image
+        case UIActivity.ActivityType(rawValue: "jp.naver.line.Share"):
+            return image
+        default:
+            return image
+            
+        }
+    }
+    
+}
 
 
+class ActivityItemSourceURL: NSObject, UIActivityItemSource {
+    
+    var url: URL!
+    
+    
+    init(url: URL) {
+        self.url = url
+    }
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return url
+        
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        
+        switch activityType {
+        case UIActivity.ActivityType.postToFacebook:
+            return url
+        case UIActivity.ActivityType.postToTwitter:
+            return url
+        case UIActivity.ActivityType.mail:
+            return url
+        case UIActivity.ActivityType.copyToPasteboard:
+            return nil
+        case UIActivity.ActivityType.message:
+            return url
+        case UIActivity.ActivityType.postToFlickr:
+            return url
+        case UIActivity.ActivityType.postToTencentWeibo:
+            return url
+        case UIActivity.ActivityType.postToVimeo:
+            return url
+        case UIActivity.ActivityType.print:
+            return url
+        case UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"):
+            return url
+        case UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"):
+            return url
+        case UIActivity.ActivityType(rawValue: "com.burbn.instagram.shareextension"):
+            return nil
+        case UIActivity.ActivityType(rawValue: "jp.naver.line.Share"):
+            return url
+            
+        default:
+            return url
+            
+        }
+    }
+}
