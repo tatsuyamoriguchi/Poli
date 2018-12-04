@@ -312,7 +312,7 @@ class ActivityItemSourceImage: NSObject, UIActivityItemSource {
         
         switch activityType {
         case UIActivity.ActivityType.postToFacebook:
-            return image
+            return nil
         case UIActivity.ActivityType.postToTwitter:
             return nil
         case UIActivity.ActivityType.mail:
@@ -391,6 +391,8 @@ class ActivityItemSourceURL: NSObject, UIActivityItemSource {
             return nil
         case UIActivity.ActivityType(rawValue: "jp.naver.line.Share"):
             return url
+        //case UIActivity.ActivityType(rawValue: "com.snapchat.Share"):
+          //  return nil
             
         default:
             return url
