@@ -22,13 +22,13 @@ class TodaysTasksTableViewController: UITableViewController {
 
         var image: UIImage
         var message: String
-        var url: URL
+        //var url: URL
    
         image = UIImage(named: "PoliPoliIconLarge")!
         message = "I will complete the following task(s) today :"
-        url = URL(string: "http://www.beckos.com")!
+        //url = URL(string: "http://www.beckos.com")!
 
-        
+
         var previousGoalTitle: String = ""
         for task in tasks {
             
@@ -42,9 +42,15 @@ class TodaysTasksTableViewController: UITableViewController {
                 message.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
             }
         }
-  
-        //let activityItems = [message, image, url] as [Any]
-        let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
+
+        let activityItems = [message, image] as [Any]
+        // Not using UIActivityItemSource
+        // If with url, Facebook, Facebook Messenger and LinkedIn recognize url only, not message or image
+        // Mail, Message, Reminders, NotesTwitter, Messenger, LINE, Snapchat, Facebook(url only), LinkedIn(url only)
+        // With only messae and image, LinkedIn still returns an error, but message was posted successfully.
+        
+        
+        //let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
             
         activityVC.excludedActivityTypes = [
@@ -61,7 +67,7 @@ class TodaysTasksTableViewController: UITableViewController {
         self.present(activityVC, animated: true, completion: nil)
         
         //activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+        //self.present(activityVC, animated: true, completion: nil)
         
     }
 
@@ -230,6 +236,10 @@ class TodaysTasksTableViewController: UITableViewController {
     }
 }
 
+
+ // Can't figure out how to pass multiple values from function with UIActivityItemSource
+ // changing return value to an array, UIActivityItemSource won't recognize that funciton
+/*
 class ActivityItemSource: NSObject, UIActivityItemSource {
 
     var message: String!
@@ -240,13 +250,6 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
         self.message = message
         self.image = image
         self.url = url
-    }
-
-    
-    override init() {
-        image = UIImage(named: "PoliPoliIconLarge")!
-        message = "I will complete the following task(s) today :"
-        url = URL(string: "http://www.beckos.com")!
     }
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
@@ -293,5 +296,7 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
          }
 
     }
-}
+ }
+ */
+
 
