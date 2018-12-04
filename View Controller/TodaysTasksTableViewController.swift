@@ -21,9 +21,13 @@ class TodaysTasksTableViewController: UITableViewController {
     @objc func addTapped() {
 
         var image: UIImage
-        var text: String
+        var message: String
+        var url: URL
+   
         image = UIImage(named: "PoliPoliIconLarge")!
-        text = "I will complete the following task(s) today :"
+        message = "I will complete the following task(s) today :"
+        url = URL(string: "http://www.beckos.com")!
+
         
         var previousGoalTitle: String = ""
         for task in tasks {
@@ -32,21 +36,32 @@ class TodaysTasksTableViewController: UITableViewController {
             let toDo = task.toDo
             
             if goalTitle != previousGoalTitle {
-                text.append("\n\nGoal Title: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
+                message.append("\n\nGoal Title: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
                 previousGoalTitle = goalTitle!
             } else {
-                text.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
+                message.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
             }
         }
   
-        let activityItems = [text, image] as [Any]
-        
+        //let activityItems = [message, image, url] as [Any]
+        let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            
+        activityVC.excludedActivityTypes = [
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.openInIBooks,
+            //UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"),
+            //UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"),
+        ]
+        
+        
         self.present(activityVC, animated: true, completion: nil)
         
         //activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
-        
         
     }
 
@@ -212,6 +227,71 @@ class TodaysTasksTableViewController: UITableViewController {
                 vc.selectedGoal = selectedGoal
             }
         }
+    }
+}
+
+class ActivityItemSource: NSObject, UIActivityItemSource {
+
+    var message: String!
+    var image: UIImage!
+    var url: URL!
+    
+    init(message: String, image: UIImage, url: URL) {
+        self.message = message
+        self.image = image
+        self.url = url
+    }
+
+    
+    override init() {
+        image = UIImage(named: "PoliPoliIconLarge")!
+        message = "I will complete the following task(s) today :"
+        url = URL(string: "http://www.beckos.com")!
+    }
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return message
+        // to display Instagram button, return image
+        // image: Mail, Message, Notes, Twitter, Instagram, Shared Album, Post to Google Maps, Messenger, LINE, Snapchat, Facebook
+        // message: Mail, Message, Notes, Twitter, Messenger, LINE, Facebook, LinkedIn
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+    
+        switch activityType {
+        case UIActivity.ActivityType.postToFacebook:
+            return image
+        case UIActivity.ActivityType.postToTwitter:
+            return message
+        case UIActivity.ActivityType.mail:
+            return message
+        case UIActivity.ActivityType.copyToPasteboard:
+            return message
+        case UIActivity.ActivityType.markupAsPDF:
+            return message
+        case UIActivity.ActivityType.message:
+            return message
+        case UIActivity.ActivityType.postToFlickr:
+            return image
+        case UIActivity.ActivityType.postToTencentWeibo:
+            return message
+        case UIActivity.ActivityType.postToVimeo:
+            return image
+        case UIActivity.ActivityType.print:
+            return message
+        case UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"):
+            return message
+        case UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"):
+            return message
+ 
+        default:
+           return message
+
+            // To post image to Instagram, return image
+            // message: Mail, Message, Notes, Twitter, Messenger, LINE, Facebook, LinkedIn(althugh showing an error)
+ 
+         }
+
     }
 }
 
