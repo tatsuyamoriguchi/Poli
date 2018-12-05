@@ -18,8 +18,12 @@ class TodaysTasksTableViewController: UITableViewController {
     var userName: String = ""
 
 
+    @objc func getInfoAction() {
+        AlertNotification().alert(title: "To share with Facebook, LinkedIn or app that doens't show your Today's To-Do", message: "Please use 'Copy' first, then tap share button again and paste copied your Today's To-Do(s) to Facebook or LinkedIn Share screen view.", sender: self)
+    }
+    
     @objc func addTapped() {
-
+        
         var image: UIImage
         var message: String
         var url: URL
@@ -106,7 +110,18 @@ class TodaysTasksTableViewController: UITableViewController {
         
         // Display a share button, if any tasks item. If no tasks, segue back to root view
         if tasks.count > 0 {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
+            let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
+ 
+            // Create the info button
+            let infoButton = UIButton(type: .infoLight)
+            
+            // You will need to configure the target action for the button itself, not the bar button itemr
+            infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)
+            
+            // Create a bar button item using the info button as its custom view
+            let info = UIBarButtonItem(customView: infoButton)
+            
+            navigationItem.rightBarButtonItems = [share, info]
             
         } else {
             let noTodaysTaskAlert = UIAlertController(title: "Aelrt", message: "No Today's Task now.", preferredStyle: .alert)
