@@ -36,7 +36,7 @@ class TodaysTasksTableViewController: UITableViewController {
             let toDo = task.toDo
             
             if goalTitle != previousGoalTitle {
-                message.append("\n\nGoal Title: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
+                message.append("\n\nGoal: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
                 previousGoalTitle = goalTitle!
             } else {
                 message.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
@@ -258,6 +258,7 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
         case UIActivity.ActivityType.postToFacebook:
             return nil
         case UIActivity.ActivityType.postToTwitter:
+            message = "#PoliPoli #ToDoToday " + message
             return message
         case UIActivity.ActivityType.mail:
             return message
