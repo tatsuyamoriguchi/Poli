@@ -126,7 +126,6 @@ class GoalTableViewController: UITableViewController {
             
             goalCell.goalRewardImageView.image = UIImage(data: goalRewardImageData)
             
-            
         } else {
             goalCell.goalRewardImageView.image = #imageLiteral(resourceName: "PoliPoliIcon")
         }
@@ -199,6 +198,7 @@ class GoalTableViewController: UITableViewController {
 
                 // Change goalDone value
                 goal.goalDone = true
+                
                 // Declare ManagedObjectContext to save goalDone value
                 let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
