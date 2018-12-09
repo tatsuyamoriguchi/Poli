@@ -137,13 +137,15 @@ class GoalTableViewController: UITableViewController {
         (statusString, status) = GoalProgress().goalStatusAlert(dueDate: goal.goalDueDate! as Date, isDone: goal.goalDone)
         let NSL_dueDateLabel = String(format: NSLocalizedString("NSL_dueDateLabel", value: "Due Date: %@ - %@", comment: " "), date, statusString)
         goalCell.goalDueDateLabel.text = NSL_dueDateLabel
-        if status == true {goalCell.goalDueDateLabel.textColor = .red} else { goalCell.goalDueDateLabel.textColor = .gray }
+        if status == true {goalCell.goalDueDateLabel.textColor = .red} else { //goalCell.goalDueDateLabel.textColor = .gray
+            
+        }
         
         
         // Get goalProgress rate
         let goalProgress: Float = GoalProgress().goalProgressCalc(goal: goal, sender: self)
         let goalProgressPercentage100: Float = goalProgress * 100
-        goalCell.goalProgressView.transform = CGAffineTransform(scaleX: 1,y: 7)
+        goalCell.goalProgressView.transform = CGAffineTransform(scaleX: 1,y: 10)
         
         UIView.animate(withDuration: 3.0) {
             goalCell.goalProgressView.setProgress(goalProgress, animated: true)
@@ -231,8 +233,16 @@ class GoalTableViewController: UITableViewController {
              // Change background color if goalDone is true
             goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
             goalCell.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalDueDateLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalRewardLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalRewardLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalProgressPercentageLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            
+            
+            
+
         } else {
-            goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+            //goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
             goalCell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         }
 

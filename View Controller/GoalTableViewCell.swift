@@ -24,7 +24,8 @@ class GoalTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         GoalTableViewController().tableView.rowHeight = UITableView.automaticDimension
-        GoalTableViewController().tableView.estimatedRowHeight = 300
+        //GoalTableViewController().tableView.estimatedRowHeight = 500
+        GoalTableViewController().tableView.estimatedRowHeight = UITableView.automaticDimension
         
     }
 
