@@ -270,6 +270,7 @@
                                         <constraint firstItem="aqB-4O-fKy" firstAttribute="leading" secondItem="WBl-qN-gyC" secondAttribute="trailing" constant="8" id="tcw-6q-jeG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="goalDescriptionTextView" destination="pK1-nL-rSe" id="tdZ-by-OWm"/>
                                     <outlet property="goalDueDateLabel" destination="Xre-lg-kuf" id="eZg-NC-Tbk"/>
