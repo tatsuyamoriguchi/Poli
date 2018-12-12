@@ -119,8 +119,8 @@ class GoalTableViewController: UITableViewController {
         
         goalCell.goalTitleLabel.text = goal.goalTitle
         goalCell.goalDescriptionTextView.text = goal.goalDescription
-        let NS_Reward = NSLocalizedString("NS_Reward", value: "Reward: ", comment: "")
-        goalCell.goalRewardLabel.text = NS_Reward + (goal.goalReward)!
+        let NSL_Reward = NSLocalizedString("NSL_Reward", value: "Reward: ", comment: "")
+        goalCell.goalRewardLabel.text = NSL_Reward + (goal.goalReward)!
         
         if let goalRewardImageData = goal.goalRewardImage as Data? {
             
@@ -138,7 +138,6 @@ class GoalTableViewController: UITableViewController {
         let NSL_dueDateLabel = String(format: NSLocalizedString("NSL_dueDateLabel", value: "Due Date: %@ - %@", comment: " "), date, statusString)
         goalCell.goalDueDateLabel.text = NSL_dueDateLabel
         if status == true {goalCell.goalDueDateLabel.textColor = .red} else { goalCell.goalDueDateLabel.textColor = .gray
-            
         }
         
         

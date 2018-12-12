@@ -68,11 +68,9 @@ class TodaysTasksTableViewController: UITableViewController {
             //UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"),
         ]
         
+        activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
-        
-        //activityVC.popoverPresentationController?.sourceView = self.view
-        //self.present(activityVC, animated: true, completion: nil)
-        
+                
     }
 
     
