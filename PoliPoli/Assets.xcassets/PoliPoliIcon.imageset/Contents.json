@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PoliPoliIcon.png",
+      "filename" : "PoliPoliIconSmall.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "PoliPoliIconMidium.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "PoliPoliIconLarge.png",
       "scale" : "3x"
     }
   ],
