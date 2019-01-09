@@ -146,15 +146,24 @@ class GoalTableViewController: UITableViewController {
         let goalProgressPercentage100: Float = goalProgress * 100
         goalCell.goalProgressView.transform = CGAffineTransform(scaleX: 1,y: 10)
         
-        UIView.animate(withDuration: 3.0) {
-            goalCell.goalProgressView.setProgress(goalProgress, animated: true)
+        if goal.goalDone == false {
+            UIView.animate(withDuration: 3.0) {
+                goalCell.goalProgressView.setProgress(goalProgress, animated: true)
+            }
+        } else {
+            // No animation if the goal is not done yet.
+             goalCell.goalProgressView.setProgress(goalProgress, animated: false)
         }
+        
+        
         // Display Progress rate and a message in a cell
         let progressMessage: String = GoalProgress().goalProgressAchieved(percentage: goalProgress)
         let NSL_percentDone = NSLocalizedString("NSL_percentDone", value: "% Done, ", comment: " ")
         goalCell.goalProgressPercentageLabel.text = String(format: "%.1f", goalProgressPercentage100) + NSL_percentDone + " "
         + progressMessage
 
+       
+        
         // If all tasks have been done for the first time, display confirmation alert, if ok, change goalDone value to true
 
         if goal.goalDone == false && goalProgress == 1.0 {
@@ -238,8 +247,13 @@ class GoalTableViewController: UITableViewController {
             
             
         } else {
-            //goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-            goalCell.backgroundColor = UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1.0)
+            goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+            //goalCell.backgroundColor = UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1.0)
+            goalCell.goalDueDateLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalRewardLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            goalCell.goalProgressPercentageLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+            
         }
 
         return goalCell

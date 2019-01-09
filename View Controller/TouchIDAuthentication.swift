@@ -69,19 +69,26 @@ class BiometricIDAuth {
                                     switch evaluateError {
                                     // 3
                                     case LAError.authenticationFailed?:
-                                        message = "There was a problem verifying your identity."
+                                        let NSL_authFailed = NSLocalizedString("NSL_authFailed", value: "There was a problem verifying your identity.", comment: "")
+                                        message = NSL_authFailed
                                     case LAError.userCancel?:
-                                        message = "You pressed cancel."
+                                        let NSL_userCancel = NSLocalizedString("NSL_userCancel", value: "You pressed cancel.", comment: "")
+                                        message = NSL_userCancel
                                     case LAError.userFallback?:
-                                        message = "Please enter your user name and password."
+                                        let NSL_userFallback = NSLocalizedString("NSL_userFallback", value: "Please enter your user name and password.", comment: "")
+                                        message = NSL_userFallback
                                     case LAError.biometryNotAvailable?:
-                                        message = "Face ID/Touch ID is not available."
+                                        let NSL_bioNotAvailable = NSLocalizedString("NSL_bioNotAvailable", value: "Face ID/Touch ID is not available.", comment: "")
+                                        message = NSL_bioNotAvailable
                                     case LAError.biometryNotEnrolled?:
-                                        message = "Face ID/Touch ID is not set up."
+                                        let NSL_bioNotEnrolled = NSLocalizedString("NSL_", value: "Face ID/Touch ID is not set up.", comment: "")
+                                        message = NSL_bioNotEnrolled
                                     case LAError.biometryLockout?:
-                                        message = "Face ID/Touch ID is locked."
+                                        let NSL_bioLockout = NSLocalizedString("NSL_bioLockout", value: "Face ID/Touch ID is locked.", comment: "")
+                                        message = NSL_bioLockout
                                     default:
-                                        message = "Face ID/Touch ID may not be configured"
+                                        let NSL_bioDefault = NSLocalizedString("NSL_bioDefault", value: "Face ID/Touch ID may not be configured", comment: "")
+                                        message = NSL_bioDefault
                                     }
                                     // 4 Pass the message in the completion closure.
                                     completion(message)
