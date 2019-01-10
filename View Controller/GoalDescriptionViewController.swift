@@ -1,6 +1,6 @@
 //
 //  GoalDescriptionViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 8/1/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.

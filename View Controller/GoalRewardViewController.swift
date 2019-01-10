@@ -1,6 +1,6 @@
 //
 //  GoalRewardViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 8/1/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -37,7 +37,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             goalRewardTextField.text = goal.goalReward
             
             if goal.goalRewardImage == nil {
-               //if no image exists 'cause perhaps it was deleted from Photos, use PoliPoli default image
+               //if no image exists 'cause perhaps it was deleted from Photos, use Poli default image
                 goalRewardImageView.image = UIImage(named: "PoliRoundIcon.png")
                 
             } else {

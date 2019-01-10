@@ -1,6 +1,6 @@
 //
 //  TouchIDAuthentication.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 11/20/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -19,7 +19,7 @@ enum BiometricType {
 class BiometricIDAuth {
     let context = LAContext()
 
-    var loginReason = "Logging in with Touch ID"
+ 
     
     // Find if biometric ID is available to the user's device.
     func canEvaluatePolicy() -> Bool {
@@ -41,6 +41,9 @@ class BiometricIDAuth {
     }
     
     func authenticateUser(completion: @escaping (String?) -> Void) {
+        let NSL_loginReason = NSLocalizedString("NSL_loginReason", value: "Logging in with Touch ID", comment: "")
+        let loginReason = NSL_loginReason
+
         // 1        authenticateUser(completion:) takes a completion handler in the form of a closure.
         
         

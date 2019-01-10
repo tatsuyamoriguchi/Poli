@@ -1,6 +1,6 @@
 //
 //  GoalTableViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 7/17/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -189,7 +189,7 @@ class GoalTableViewController: UITableViewController {
                 let NSL_alertTitle_014 = NSLocalizedString("NSL_alertTitle_014", value: "Congratulation!", comment: "")
                 
                 let reward: String?
-                if goal.goalReward == "" { reward = "PoliPoli" } else { reward = goal.goalReward }
+                if goal.goalReward == "" { reward = "Poli" } else { reward = goal.goalReward }
                 let NSL_alertMessage_014 = String(format: NSLocalizedString("NSL_alertMessage_014", value: "You now deserve %@! now. Celebrate your accomplishment with the reward RIGHT NOW!", comment: ""), reward!)
                 
                 let congratAlert = UIAlertController(title: NSL_alertTitle_014, message: NSL_alertMessage_014, preferredStyle: .alert)
@@ -199,7 +199,7 @@ class GoalTableViewController: UITableViewController {
                 if let goalRewardImageData = goal.goalRewardImage as Data? {
                     imageView.image = UIImage(data: goalRewardImageData)
                 } else {
-                    imageView.image = #imageLiteral(resourceName: "PoliPoliFace")
+                    imageView.image = UIImage(named: "PoliRoundIcon")
                 }
 
                 PlayAudio.sharedInstance.playClick(fileName: "triplebarking", fileExt: ".wav")

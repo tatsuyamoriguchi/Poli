@@ -1,6 +1,6 @@
 //
 //  SettingsViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 8/4/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -160,7 +160,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let requestIdentifier = "DailyReminder"
         let content = UNMutableNotificationContent()
         let NSL_contentTitle = NSLocalizedString("NSL_contentTitle", value: "Daily Reminder", comment: " ")
-        let NSL_contentSubtitle = NSLocalizedString("NSL_contentSubtitle ", value: "Open PoliPoli", comment: " ")
+        let NSL_contentSubtitle = NSLocalizedString("NSL_contentSubtitle ", value: "Open Poli", comment: " ")
         let NSL_contentBody = NSLocalizedString("NSL_contentBody", value: "Time to focus on tasks to-do!", comment: " ")
         content.title = NSL_contentTitle
         content.subtitle = NSL_contentSubtitle
@@ -178,8 +178,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         // Attach image to notificaiton
         // If sets trigger repeats option to true, notificaiton doesn't attach image on second time or later.
-         
-        guard let url = Bundle.main.url(forResource: "PoliRoundIcon", withExtension: "png")
+        guard let url = Bundle.main.url(forResource: "PoliRooundIcon 1x", withExtension: "png")
+        
             else {
                 print("unable to find image!")
                 return

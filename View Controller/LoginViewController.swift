@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 8/4/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -11,7 +11,7 @@ import QuartzCore
 
 // Keychain Configuration
 struct KeychainConfiguration {
-    static let serviceName = "PoliPoli"
+    static let serviceName = "Poli"
     static let accessGroup: String? = nil
 }
 
@@ -53,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
         // User login account already exists alert
         if (UserDefaults.standard.object(forKey: "userName") as? String) != nil {
             let NSL_alertTitle_001 = NSLocalizedString("NSL_alertTitle_001", value: "User Already Exists", comment: "")
-            let NSL_alertMessage_001 = NSLocalizedString("NSL_alertMessage_001", value: "This App already has a user. To change your user info, login PoliPoli and go to Settings.", comment: " ")
+            let NSL_alertMessage_001 = NSLocalizedString("NSL_alertMessage_001", value: "This App already has a user. To change your user info, login Poli and go to Settings.", comment: " ")
             
             AlertNotification().alert(title: NSL_alertTitle_001, message: NSL_alertMessage_001, sender: self)
             
@@ -88,7 +88,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CAAnimationDel
             passwordTextField.text = ""
             
             let NSL_alertTitle_003 = NSLocalizedString("NSL_NSL_alertTitle_003", value: "User Account Created", comment: " ")
-            let NSL_alertMessage_003 = NSLocalizedString("NSL_alertMessage_003", value: "Please use the user name and password just created to login PoliPoli.", comment: " ")
+            let NSL_alertMessage_003 = NSLocalizedString("NSL_alertMessage_003", value: "Please use the user name and password just created to login Poli.", comment: " ")
             AlertNotification().alert(title: NSL_alertTitle_003, message: NSL_alertMessage_003, sender: self)
             
         }

@@ -1,6 +1,6 @@
 //
 //  TaskTableViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 7/17/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.

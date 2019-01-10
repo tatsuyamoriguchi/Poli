@@ -1,6 +1,6 @@
 //
 //  TodaysTasksTableViewController.swift
-//  PoliPoli
+//  Poli
 //
 //  Created by Tatsuya Moriguchi on 8/16/18.
 //  Copyright © 2018 Becko's Inc. All rights reserved.
@@ -43,12 +43,10 @@ class TodaysTasksTableViewController: UITableViewController {
             let toDo = task.toDo
             
             if goalTitle != previousGoalTitle {
-                let NSL_goalTitle = NSLocalizedString("NSL_goalTitle", value: "\n\nGoal: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ", comment: "")
-                message.append(NSL_goalTitle)
+                message.append("\n\nGoal: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
                 previousGoalTitle = goalTitle!
             } else {
-                let NSL_toDo = NSLocalizedString("NSL_toDo", value: "\n- To Do: \(toDo ?? "ERROR NO TODO") ", comment: "")
-                message.append(NSL_toDo)
+                message.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
             }
         }
 
