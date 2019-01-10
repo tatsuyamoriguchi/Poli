@@ -23,7 +23,6 @@
 		8C4E79FF210F826B00483CCE /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */; };
 		8C4E7A00210F826B00483CCE /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */; };
 		8C4E7A01210F826B00483CCE /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FD210F826B00483CCE /* Task+CoreDataProperties.swift */; };
-		8C57DAC9212A577700CE9729 /* PoliPoliIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C57DAC8212A577700CE9729 /* PoliPoliIcon.png */; };
 		8C58CE27211B618900AE695F /* GoalDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58CE26211B618900AE695F /* GoalDoneViewController.swift */; };
 		8C616A8C2130CCF200784934 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C616A8A2130CCF200784934 /* InfoPlist.strings */; };
 		8C616A8F2130CCF200784934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C616A8D2130CCF200784934 /* Localizable.strings */; };
@@ -36,6 +35,7 @@
 		8C807A3D21267F890024D5EB /* TodaysTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */; };
 		8C98C31D21191B1F00FAFADE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C98C31C21191B1F00FAFADE /* AVFoundation.framework */; };
 		8CB3A03B2104097F00774DE6 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */; };
+		8CC2EDC021E72669004603CB /* PoliRoundIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC2EDBD21E7257F004603CB /* PoliRoundIcon.png */; };
 		8CD66AA921A3B1990087C14D /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD66AA821A3B1980087C14D /* TouchIDAuthentication.swift */; };
 		8CE809B9212A31A20076756C /* LocalNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */; };
 		8CE90872210ECC3D007AB95F /* GoalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE90871210ECC3D007AB95F /* GoalProgress.swift */; };
@@ -61,11 +61,10 @@
 		8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C4E79FD210F826B00483CCE /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoliPoli.entitlements; sourceTree = "<group>"; };
-		8C57DAC8212A577700CE9729 /* PoliPoliIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliPoliIcon.png; sourceTree = "<group>"; };
 		8C58CE26211B618900AE695F /* GoalDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDoneViewController.swift; sourceTree = "<group>"; };
 		8C616A8B2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C616A8E2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8C6B80AC20FD749C0055D505 /* PoliPoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliPoli.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6B80AC20FD749C0055D505 /* Poli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6B80AF20FD749C0055D505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6B80B420FD749C0055D505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C6B80B720FD749C0055D505 /* ToDoApp3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp3.xcdatamodel; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		8C807A3C21267F890024D5EB /* TodaysTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTasksTableViewController.swift; sourceTree = "<group>"; };
 		8C98C31C21191B1F00FAFADE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8CB3A03A2104097F00774DE6 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
+		8CC2EDBD21E7257F004603CB /* PoliRoundIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliRoundIcon.png; sourceTree = "<group>"; };
 		8CD66AA821A3B1980087C14D /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 		8CE809B8212A31A20076756C /* LocalNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationDelegate.swift; sourceTree = "<group>"; };
 		8CE90871210ECC3D007AB95F /* GoalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgress.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		8C6B80A320FD749C0055D505 = {
 			isa = PBXGroup;
 			children = (
-				8C6B80AE20FD749C0055D505 /* PoliPoli */,
+				8C6B80AE20FD749C0055D505 /* Poli */,
 				8C004A7320FEB3E300960B3A /* View Controller */,
 				8C6B80CC20FDBFAF0055D505 /* Core Data */,
 				8C6B80AD20FD749C0055D505 /* Products */,
@@ -139,15 +139,15 @@
 		8C6B80AD20FD749C0055D505 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C6B80AC20FD749C0055D505 /* PoliPoli.app */,
+				8C6B80AC20FD749C0055D505 /* Poli.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C6B80AE20FD749C0055D505 /* PoliPoli */ = {
+		8C6B80AE20FD749C0055D505 /* Poli */ = {
 			isa = PBXGroup;
 			children = (
-				8C57DAC8212A577700CE9729 /* PoliPoliIcon.png */,
+				8CC2EDBD21E7257F004603CB /* PoliRoundIcon.png */,
 				8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */,
 				8C6B80AF20FD749C0055D505 /* AppDelegate.swift */,
 				8C6B80B320FD749C0055D505 /* Main.storyboard */,
@@ -157,7 +157,7 @@
 				8C616A8D2130CCF200784934 /* Localizable.strings */,
 				8C616A8A2130CCF200784934 /* InfoPlist.strings */,
 			);
-			path = PoliPoli;
+			path = Poli;
 			sourceTree = "<group>";
 		};
 		8C6B80CC20FDBFAF0055D505 /* Core Data */ = {
@@ -184,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C6B80AB20FD749C0055D505 /* PoliPoli */ = {
+		8C6B80AB20FD749C0055D505 /* Poli */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C6B80C120FD749E0055D505 /* Build configuration list for PBXNativeTarget "PoliPoli" */;
+			buildConfigurationList = 8C6B80C120FD749E0055D505 /* Build configuration list for PBXNativeTarget "Poli" */;
 			buildPhases = (
 				8C6B80A820FD749C0055D505 /* Sources */,
 				8C6B80A920FD749C0055D505 /* Frameworks */,
@@ -196,9 +196,9 @@
 			);
 			dependencies = (
 			);
-			name = PoliPoli;
+			name = Poli;
 			productName = ToDoApp3;
-			productReference = 8C6B80AC20FD749C0055D505 /* PoliPoli.app */;
+			productReference = 8C6B80AC20FD749C0055D505 /* Poli.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -225,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C6B80A720FD749C0055D505 /* Build configuration list for PBXProject "PoliPoli" */;
+			buildConfigurationList = 8C6B80A720FD749C0055D505 /* Build configuration list for PBXProject "Poli" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -239,7 +239,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C6B80AB20FD749C0055D505 /* PoliPoli */,
+				8C6B80AB20FD749C0055D505 /* Poli */,
 			);
 		};
 /* End PBXProject section */
@@ -249,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C57DAC9212A577700CE9729 /* PoliPoliIcon.png in Resources */,
+				8CC2EDC021E72669004603CB /* PoliRoundIcon.png in Resources */,
 				8C616A8F2130CCF200784934 /* Localizable.strings in Resources */,
 				8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */,
 				8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */,
@@ -459,13 +459,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
-				INFOPLIST_FILE = PoliPoli/Info.plist;
+				INFOPLIST_FILE = Poli/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.PoliPoli;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Poli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -481,13 +481,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
-				INFOPLIST_FILE = PoliPoli/Info.plist;
+				INFOPLIST_FILE = Poli/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.PoliPoli;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Poli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -498,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C6B80A720FD749C0055D505 /* Build configuration list for PBXProject "PoliPoli" */ = {
+		8C6B80A720FD749C0055D505 /* Build configuration list for PBXProject "Poli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6B80BF20FD749E0055D505 /* Debug */,
@@ -507,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C6B80C120FD749E0055D505 /* Build configuration list for PBXNativeTarget "PoliPoli" */ = {
+		8C6B80C120FD749E0055D505 /* Build configuration list for PBXNativeTarget "Poli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6B80C220FD749E0055D505 /* Debug */,

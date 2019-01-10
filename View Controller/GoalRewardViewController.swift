@@ -38,7 +38,7 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             
             if goal.goalRewardImage == nil {
                //if no image exists 'cause perhaps it was deleted from Photos, use PoliPoli default image
-                goalRewardImageView.image = #imageLiteral(resourceName: "PoliPoliIcon.png")
+                goalRewardImageView.image = UIImage(named: "PoliRoundIcon.png")
                 
             } else {
             

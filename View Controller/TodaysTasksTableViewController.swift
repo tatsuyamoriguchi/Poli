@@ -28,7 +28,7 @@ class TodaysTasksTableViewController: UITableViewController {
         var message: String
         var url: URL
    
-        image = UIImage(named: "PoliPoliIcon")!
+        image = UIImage(named: "PoliRoundIcon")!
         message = "I will complete the following task(s) today :"
         url = URL(string: "http://beckos.com/?p=1029")!
 
@@ -311,9 +311,7 @@ class ActivityItemSourceImage: NSObject, UIActivityItemSource {
     
     
     init(image: UIImage) {
-        //self.image = image
-        self.image = UIImage(named: "PoliPoliIcon")!
-
+        self.image = UIImage(named: "PoliRoundIcon")!
     }
     
     

@@ -127,7 +127,7 @@ class GoalTableViewController: UITableViewController {
             goalCell.goalRewardImageView.image = UIImage(data: goalRewardImageData)
             
         } else {
-            goalCell.goalRewardImageView.image = #imageLiteral(resourceName: "PoliPoliIcon")
+            goalCell.goalRewardImageView.image = UIImage(named: "PoliRoundIcon")
         }
 
         let dateFormatter = DateFormatter()
