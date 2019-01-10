@@ -19,7 +19,9 @@ class TodaysTasksTableViewController: UITableViewController {
 
 
     @objc func getInfoAction() {
-        AlertNotification().alert(title: "To share with Facebook, LinkedIn or app that doens't show your Today's To-Do", message: "Please use 'Copy' first, then tap share button again and paste copied your Today's To-Do(s) to Facebook or LinkedIn Share screen view.", sender: self)
+        let NSL_shareAlert = NSLocalizedString("NSL_shareAlert", value: "To share with Facebook, LinkedIn or app that doens't show your Today's To-Do", comment: "")
+        let NSL_shareMessage = NSLocalizedString("NSL_shareMessage", value: "Please use 'Copy' first, then tap share button again and paste copied your Today's To-Do(s) to Facebook or LinkedIn Share screen view.", comment: "")
+        AlertNotification().alert(title: NSL_shareAlert, message: NSL_shareMessage, sender: self)
     }
     
     @objc func addTapped() {
@@ -29,7 +31,8 @@ class TodaysTasksTableViewController: UITableViewController {
         var url: URL
    
         image = UIImage(named: "PoliRoundIcon")!
-        message = "I will complete the following task(s) today :"
+        let NSL_postMessage = NSLocalizedString("NSL_postMessage", value: "I will complete the following task(s) today :", comment: "")
+        message = NSL_postMessage
         url = URL(string: "http://beckos.com/?p=1029")!
 
 
@@ -40,10 +43,12 @@ class TodaysTasksTableViewController: UITableViewController {
             let toDo = task.toDo
             
             if goalTitle != previousGoalTitle {
-                message.append("\n\nGoal: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ")
+                let NSL_goalTitle = NSLocalizedString("NSL_goalTitle", value: "\n\nGoal: \(goalTitle ?? "ERROR NO GOALTITLE")\n- To Do: \(toDo ?? "ERROR NO TODO")  ", comment: "")
+                message.append(NSL_goalTitle)
                 previousGoalTitle = goalTitle!
             } else {
-                message.append("\n- To Do: \(toDo ?? "ERROR NO TODO") ")
+                let NSL_toDo = NSLocalizedString("NSL_toDo", value: "\n- To Do: \(toDo ?? "ERROR NO TODO") ", comment: "")
+                message.append(NSL_toDo)
             }
         }
 
@@ -82,9 +87,11 @@ class TodaysTasksTableViewController: UITableViewController {
         //self.navigationItem.prompt = NSL_taskList
         if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
             userName = UserDefaults.standard.string(forKey: "userName")!
-            self.navigationItem.prompt = "Login as \(userName)"
+            let NSL_loginUsername = NSLocalizedString("NSL_loginUsername", value: "Login as \(userName)", comment: "")
+            self.navigationItem.prompt = NSL_loginUsername
         }else {
-            self.navigationItem.prompt = "Login Error"
+            let NSL_loginError = NSLocalizedString("NSL_loginError", value: "Login Error", comment: "")
+            self.navigationItem.prompt = NSL_loginError
         }
         
        
@@ -122,7 +129,8 @@ class TodaysTasksTableViewController: UITableViewController {
             navigationItem.rightBarButtonItems = [share, info]
             
         } else {
-            let noTodaysTaskAlert = UIAlertController(title: "Aelrt", message: "No Today's Task now.", preferredStyle: .alert)
+            let NSL_noTodaysTask = NSLocalizedString("NSL_noTodaysTask", value: "No Today's Task now.", comment: "")
+            let noTodaysTaskAlert = UIAlertController(title: "Aelrt", message: NSL_noTodaysTask, preferredStyle: .alert)
             self.present(noTodaysTaskAlert, animated: true, completion: nil)
             
             // Hide rightBarButtonItem
