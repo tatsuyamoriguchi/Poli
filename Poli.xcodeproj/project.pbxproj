@@ -60,7 +60,7 @@
 		8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C4E79FD210F826B00483CCE /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoliPoli.entitlements; sourceTree = "<group>"; };
+		8C547A1D211F5F7900ED675D /* Poli.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poli.entitlements; sourceTree = "<group>"; };
 		8C58CE26211B618900AE695F /* GoalDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDoneViewController.swift; sourceTree = "<group>"; };
 		8C616A8B2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C616A8E2130CCF200784934 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC2EDBD21E7257F004603CB /* PoliRoundIcon.png */,
-				8C547A1D211F5F7900ED675D /* PoliPoli.entitlements */,
+				8C547A1D211F5F7900ED675D /* Poli.entitlements */,
 				8C6B80AF20FD749C0055D505 /* AppDelegate.swift */,
 				8C6B80B320FD749C0055D505 /* Main.storyboard */,
 				8C6B80B920FD749E0055D505 /* Assets.xcassets */,
@@ -455,7 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PoliPoli/PoliPoli.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Poli/Poli.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
@@ -477,7 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PoliPoli/PoliPoli.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Poli/Poli.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
