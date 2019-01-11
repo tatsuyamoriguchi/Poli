@@ -178,7 +178,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         // Attach image to notificaiton
         // If sets trigger repeats option to true, notificaiton doesn't attach image on second time or later.
-        guard let url = Bundle.main.url(forResource: "PoliRooundIcon 1x", withExtension: "png")
+        guard let url = Bundle.main.url(forResource: "PoliRooundIcon", withExtension: "png")
         
             else {
                 print("unable to find image!")

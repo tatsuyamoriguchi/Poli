@@ -248,8 +248,7 @@ class GoalTableViewController: UITableViewController {
             
         } else {
             goalCell.goalDescriptionTextView.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
-            goalCell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-            //goalCell.backgroundColor = UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1.0)
+            goalCell.backgroundColor = UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1.0)
             goalCell.goalDueDateLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
             goalCell.goalRewardLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
             goalCell.goalProgressPercentageLabel.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
