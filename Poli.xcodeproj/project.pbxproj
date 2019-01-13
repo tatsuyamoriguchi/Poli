@@ -19,6 +19,7 @@
 		8C433CD521127328008B946F /* GoalTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C433CD421127328008B946F /* GoalTitleViewController.swift */; };
 		8C493FEC2118B447007D490D /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C493FEB2118B447007D490D /* AlertNotification.swift */; };
 		8C4A8A4B212BD253009E1E9F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A8A4A212BD253009E1E9F /* RootViewController.swift */; };
+		8C4DD31421E90136001F1204 /* PoliRoundIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4DD31321E90135001F1204 /* PoliRoundIcon.png */; };
 		8C4E79FE210F826B00483CCE /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FA210F826B00483CCE /* Goal+CoreDataClass.swift */; };
 		8C4E79FF210F826B00483CCE /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */; };
 		8C4E7A00210F826B00483CCE /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */; };
@@ -40,7 +41,6 @@
 		8CE90872210ECC3D007AB95F /* GoalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE90871210ECC3D007AB95F /* GoalProgress.swift */; };
 		8CF25A0721195E3200634987 /* PlayAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF25A0621195E3200634987 /* PlayAudio.swift */; };
 		8CF86D89211AD5A10079A8C9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */; };
-		8CF8E73621E87EAF009352C0 /* PoliRooundIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8E73521E87EAE009352C0 /* PoliRooundIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +56,7 @@
 		8C433CD421127328008B946F /* GoalTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTitleViewController.swift; sourceTree = "<group>"; };
 		8C493FEB2118B447007D490D /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
 		8C4A8A4A212BD253009E1E9F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		8C4DD31321E90135001F1204 /* PoliRoundIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliRoundIcon.png; sourceTree = "<group>"; };
 		8C4E79FA210F826B00483CCE /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C4E79FB210F826B00483CCE /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C4E79FC210F826B00483CCE /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		8CE90871210ECC3D007AB95F /* GoalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgress.swift; sourceTree = "<group>"; };
 		8CF25A0621195E3200634987 /* PlayAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudio.swift; sourceTree = "<group>"; };
 		8CF86D88211AD5A10079A8C9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		8CF8E73521E87EAE009352C0 /* PoliRooundIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoliRooundIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 		8C6B80A320FD749C0055D505 = {
 			isa = PBXGroup;
 			children = (
-				8CF8E73521E87EAE009352C0 /* PoliRooundIcon.png */,
+				8C4DD31321E90135001F1204 /* PoliRoundIcon.png */,
 				8C6B80AE20FD749C0055D505 /* Poli */,
 				8C004A7320FEB3E300960B3A /* View Controller */,
 				8C6B80CC20FDBFAF0055D505 /* Core Data */,
@@ -252,9 +252,9 @@
 				8C616A8F2130CCF200784934 /* Localizable.strings in Resources */,
 				8C6B80BD20FD749E0055D505 /* LaunchScreen.storyboard in Resources */,
 				8C6B80BA20FD749E0055D505 /* Assets.xcassets in Resources */,
+				8C4DD31421E90136001F1204 /* PoliRoundIcon.png in Resources */,
 				8C6B80B520FD749C0055D505 /* Main.storyboard in Resources */,
 				8C616A8C2130CCF200784934 /* InfoPlist.strings in Resources */,
-				8CF8E73621E87EAF009352C0 /* PoliRooundIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

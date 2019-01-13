@@ -33,7 +33,7 @@ class TodaysTasksTableViewController: UITableViewController {
         image = UIImage(named: "PoliRoundIcon")!
         let NSL_postMessage = NSLocalizedString("NSL_postMessage", value: "I will complete the following task(s) today :", comment: "")
         message = NSL_postMessage
-        url = URL(string: "http://beckos.com/?p=1029")!
+        url = URL(string: "http://beckos.com/?p=1044")!
 
 
         var previousGoalTitle: String = ""
@@ -54,8 +54,8 @@ class TodaysTasksTableViewController: UITableViewController {
         // Not using UIActivityItemSource
         // If with url, Facebook, Facebook Messenger and LinkedIn recognize url only, not message or image
         // Mail, Message, Reminders, NotesTwitter, Messenger, LINE, Snapchat, Facebook(url only), LinkedIn(url only)
-        // With only messae and image, LinkedIn still returns an error, but message was posted successfully.
-        //let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
+        // With only message and image, LinkedIn still returns an error, but message was posted successfully.
+        // let activityItems = [ActivityItemSource(message: message, image: image, url: url)]
         
         let activityItems = [ActivityItemSource(message: message), ActivityItemSourceImage(image: image), ActivityItemSourceURL(url: url)]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
@@ -67,6 +67,7 @@ class TodaysTasksTableViewController: UITableViewController {
             UIActivity.ActivityType.markupAsPDF,
             UIActivity.ActivityType.saveToCameraRoll,
             UIActivity.ActivityType.openInIBooks,
+            //UIActivity.ActivityType(rawValue: "com.snapchat.Share")
             //UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"),
             //UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"),
         ]
@@ -277,7 +278,7 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
         case UIActivity.ActivityType.postToFacebook:
             return nil
         case UIActivity.ActivityType.postToTwitter:
-            message = "#PoliPoli #ToDoToday " + message
+            message = "#Poli #ToDoToday " + message
             return message
         case UIActivity.ActivityType.mail:
             return message
@@ -305,7 +306,7 @@ class ActivityItemSource: NSObject, UIActivityItemSource {
             return message
             
         default:
-            return nil
+            return message
         }
     }
 }
