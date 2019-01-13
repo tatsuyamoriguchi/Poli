@@ -99,14 +99,14 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    
+  /*
     @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
-        imagePicker()
+            imagePicker()
     }
+ */
+        @IBAction func selectImage(_ sender: AnyObject) {
+    //func imagePicker() {
     
-    
-    func imagePicker() {
-        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         let NSL_alertTitle_018 = NSLocalizedString("NSL_alertTitle_018", value: "Photo Source", comment: "")
@@ -124,14 +124,30 @@ class GoalRewardViewController: UIViewController, UIImagePickerControllerDelegat
             print("Camera is not available.")
             print("\n")
         }
+        
+        
         let NSL_alertTitle_020 = NSLocalizedString("NSL_alertTitle_020", value: "Photo Library", comment: "")
         actionSheet.addAction(UIAlertAction(title: NSL_alertTitle_020, style: .default, handler: { (action: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
-        let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
-        actionSheet.addAction(UIAlertAction(title: NSL_cancelButton, style: .cancel, handler: nil))
-        self.present(actionSheet, animated: true, completion: nil)
+
+            let NSL_cancelButton = NSLocalizedString("NSL_cancelButton", value: "Cancel", comment: "")
+            actionSheet.addAction(UIAlertAction(title: NSL_cancelButton, style: .cancel, handler: nil))
+        
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad ){
+                
+                if let popoverController = actionSheet.popoverPresentationController{
+                    popoverController.sourceView = self.view
+                    
+                    popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                    popoverController.permittedArrowDirections = []
+                    
+                    self.present(actionSheet, animated: true, completion: nil)
+                }
+            }else{
+                self.present(actionSheet, animated: true, completion: nil)
+            }
         
     }
     
