@@ -86,7 +86,13 @@ class TodaysTasksTableViewController: UITableViewController {
         //self.navigationItem.prompt = NSL_taskList
         if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
             userName = UserDefaults.standard.string(forKey: "userName")!
-            let NSL_loginUsername = NSLocalizedString("NSL_loginUsername", value: "Login as \(userName)", comment: "")
+            //let NSL_loginUsername = NSLocalizedString("NSL_loginUsername", value: "Login as \(userName)", comment: "")
+            let NSL_loginUsername = String(format: NSLocalizedString("NSL_loginUsername", value: "Login as %@", comment: ""), userName)
+            
+            
+            //let LoginNameText = "Login as %@"
+            //let NSL_loginUsername = String(format: NSLocalizedString("LoginNameText", comment: ""), userName)
+            
             self.navigationItem.prompt = NSL_loginUsername
         }else {
             let NSL_loginError = NSLocalizedString("NSL_loginError", value: "Login Error", comment: "")
