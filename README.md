@@ -2,7 +2,7 @@
 <br>Version 1.0
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app that helps you achieve goals
-<br>YouTube video: https://www.youtube.com/watch?v=4d1f2MOnbLk
+<br>YouTube video: https://youtu.be/KneZEZ1rJWY
 <br><img src="PoliPoliIcon.png" alt="PoliPoli icon image">
 <br>
 <h2>To-Do app with following features:</h2>
