@@ -1,4 +1,4 @@
-# PoliPoli
+# Poli
 <br>Version 1.0
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app that helps you achieve goals
