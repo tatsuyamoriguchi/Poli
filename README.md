@@ -27,11 +27,12 @@
   <li>Pop up reward message and image when completing all tasks assigned to a goal
   <li>Done/undone a goal
   <li>Grayed out done goals in goal list
+
     
-    <br>
-    <br>
-    To Contact Becko's Inc., visit http://www.beckos.com 
-    <br>LinkedIn: http://www.linkedin.com/in/tatsuyamoriguchi (for English speakers)
-    <br>Facebook: http://www.facebook.com/brian.moriguchi (mainli for Japanese speakers)
+ <br>
+ <br>To Contact Becko's Inc., visit http://www.beckos.com 
+ <br>LinkedIn: http://www.linkedin.com/in/tatsuyamoriguchi (for English speakers)
+ <br>Facebook: http://www.facebook.com/brian.moriguchi (mainli for Japanese speakers)
+
     
   
