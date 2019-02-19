@@ -3,7 +3,7 @@
 <br>Copyright 2018 Tatsuya Moriguchi
 <br>BFF app that helps you achieve goals
 <br>YouTube video: https://youtu.be/KneZEZ1rJWY
-<br><img src="PoliRoundIcon.png" alt="PoliPoli icon image">
+<br><img src="PoliRoundIcon 3x.png" alt="PoliPoli icon image">
 <br>
 <h2>To-Do app with following features:</h2>
   <li>Simple animation and sound
